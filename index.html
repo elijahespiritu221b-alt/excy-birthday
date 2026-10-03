@@ -393,6 +393,7 @@ body::before {
     height: 390px;
     margin: 0 auto;
     overflow: visible;
+    transition: height 0.55s ease;
 }
 
 .envelope-back {
@@ -401,15 +402,8 @@ body::before {
     border-radius: 20px;
     background: linear-gradient(145deg, #f7a8c4, #e875a3);
     box-shadow: var(--shadow-soft);
+    transition: opacity 0.35s ease;
 }
-
-/*
- * The old version used rotateX() on the flap.
- * That created a 3D stacking context and caused the giant
- * pink triangle to sit over the heading and letter on some
- * browsers. This version intentionally uses a simple 2D
- * show/hide transition instead.
- */
 
 .envelope-pocket {
     position: absolute;
@@ -425,6 +419,7 @@ body::before {
         100% 100%,
         0 100%
     );
+    transition: opacity 0.35s ease;
 }
 
 .envelope-flap {
@@ -441,9 +436,6 @@ body::before {
     );
     border-radius: 20px 20px 0 0;
     background: linear-gradient(150deg, #ffb9d0, #ed83ab);
-    opacity: 1;
-    visibility: visible;
-    transform: none;
     transition:
         opacity 0.35s ease,
         visibility 0.35s ease;
@@ -451,61 +443,42 @@ body::before {
 
 .envelope-letter {
     position: absolute;
-    left: 7%;
-    right: 7%;
-    top: 9%;
+    left: 5%;
+    right: 5%;
+    top: 20px;
     z-index: 3;
-    max-height: 330px;
+    height: 350px;
     overflow: hidden;
-    padding: 30px 30px 35px;
-    border-radius: 15px;
+    padding: 30px 34px 35px;
+    border-radius: 18px;
     background:
         linear-gradient(
-            rgba(255,255,255,0.98),
-            rgba(255,250,250,0.98)
-        ),
-        repeating-linear-gradient(
-            0deg,
-            transparent 0,
-            transparent 28px,
-            rgba(210,150,175,0.12) 29px
+            rgba(255,255,255,0.99),
+            rgba(255,250,250,0.99)
         );
     box-shadow:
-        0 10px 25px rgba(125,45,77,0.10);
+        0 14px 35px rgba(125,45,77,0.12);
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(35px);
     transition:
-        transform 0.65s ease,
-        opacity 0.45s ease;
-}
-
-.envelope.open .envelope-flap {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-}
-
-.envelope.open .envelope-letter {
-    z-index: 6;
-    opacity: 1;
-    transform: translateY(-78px);
-}
-
-.envelope.open .envelope-pocket {
-    z-index: 4;
+        transform 0.55s ease,
+        opacity 0.4s ease;
 }
 
 .envelope-letter h3 {
-    margin: 0 0 16px;
+    margin: 0 0 18px;
     color: var(--rose-dark);
     font-family: Georgia, "Times New Roman", serif;
-    font-size: 1.45rem;
+    font-size: 1.5rem;
+    line-height: 1.25;
 }
 
 .letter-scroll {
-    max-height: 245px;
+    height: 260px;
     overflow-y: auto;
-    padding-right: 8px;
+    padding-right: 12px;
+    scrollbar-width: thin;
+    scrollbar-color: #e99ab6 transparent;
 }
 
 .letter-scroll p {
@@ -515,6 +488,24 @@ body::before {
     font-size: 0.98rem;
     line-height: 1.9;
     white-space: pre-line;
+}
+
+.envelope.open {
+    height: 410px;
+}
+
+.envelope.open .envelope-back,
+.envelope.open .envelope-pocket,
+.envelope.open .envelope-flap {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.envelope.open .envelope-letter {
+    z-index: 12;
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .envelope-seal {
@@ -988,22 +979,6 @@ body::before {
     letter-spacing: -0.05em;
 }
 
-.wish-input {
-    width: min(560px, 100%);
-    margin: 25px auto 0;
-    padding: 16px 18px;
-    border: 1px solid rgba(201,77,115,0.17);
-    border-radius: 16px;
-    outline: none;
-    background: #fffafd;
-    color: #563445;
-    font-size: 1rem;
-}
-
-.wish-input:focus {
-    border-color: #e987ad;
-    box-shadow: 0 0 0 4px rgba(233,135,173,0.12);
-}
 
 .wish-result {
     min-height: 30px;
@@ -1684,18 +1659,23 @@ input:focus-visible {
     }
 
     .envelope-letter {
-        left: 5%;
-        right: 5%;
-        top: 7%;
+        left: 3%;
+        right: 3%;
+        top: 15px;
+        height: 270px;
         padding: 20px;
     }
 
+    .envelope.open {
+        height: 320px;
+    }
+
     .envelope.open .envelope-letter {
-        transform: translateY(-55px);
+        transform: translateY(0);
     }
 
     .letter-scroll {
-        max-height: 210px;
+        height: 195px;
     }
 
     .letter-scroll p {
@@ -1750,10 +1730,6 @@ input:focus-visible {
         padding: 32px 18px;
     }
 
-    .wish-input {
-        font-size: 0.94rem;
-    }
-
     .final-heart {
         width: 78px;
         height: 78px;
@@ -1788,11 +1764,23 @@ input:focus-visible {
     }
 
     .envelope {
-        height: 270px;
+        height: 265px;
+    }
+
+    .envelope-letter {
+        height: 245px;
+    }
+
+    .envelope.open {
+        height: 290px;
     }
 
     .envelope.open .envelope-letter {
-        transform: translateY(-45px);
+        transform: translateY(0);
+    }
+
+    .letter-scroll {
+        height: 170px;
     }
 
     .letter-scroll {
@@ -1860,7 +1848,7 @@ input:focus-visible {
     <div class="section-inner">
         <div class="center">
             <span class="eyebrow">💌 A letter for you</span>
-            <h2 class="section-title">Something I wanted Mah Girl to read</h2>
+            <h2 class="section-title">Something I wanted you to read, Mah Girl</h2>
             <p class="section-subtitle">
                 Before anything else, there is something I really want
                 you to know.
@@ -2066,15 +2054,6 @@ input:focus-visible {
         <div class="wish-card">
             <p class="clock">11:11</p>
 
-            <input
-                class="wish-input"
-                id="wishInput"
-                type="text"
-                maxlength="160"
-                placeholder="Write your wish here... ✨"
-                autocomplete="off"
-            >
-
             <br><br>
 
             <button
@@ -2085,7 +2064,10 @@ input:focus-visible {
                 ✨ Make My Wish
             </button>
 
-            <p class="wish-result" id="wishResult"></p>
+            <p class="wish-result" id="wishResult">
+                You don't have to write it down. Just close your eyes,
+                make your wish, and keep it in your heart. ❤️
+            </p>
         </div>
     </div>
 </section>
@@ -2288,8 +2270,6 @@ const blowButton =
 const candleMessage =
     document.getElementById("candleMessage");
 
-const wishInput =
-    document.getElementById("wishInput");
 
 const wishButton =
     document.getElementById("wishButton");
@@ -2657,24 +2637,8 @@ blowButton.addEventListener(
 
 function makeWish() {
 
-    const wish =
-        wishInput.value.trim();
-
-    if (!wish) {
-
-        wishResult.textContent =
-            "Write a little wish first. ✨";
-
-        wishInput.focus();
-
-        return;
-    }
-
     wishResult.textContent =
-        "✨ Your wish has been made. " +
-        "Keep believing in it, Mah Girl. ❤️";
-
-    wishInput.value = "";
+        "✨ Wish made. May this year bring you closer to everything your heart is hoping for, Mah Girl. ❤️";
 
     createHeartBurst(
         window.innerWidth / 2,
@@ -2686,16 +2650,6 @@ function makeWish() {
 wishButton.addEventListener(
     "click",
     makeWish
-);
-
-wishInput.addEventListener(
-    "keydown",
-    function (event) {
-
-        if (event.key === "Enter") {
-            makeWish();
-        }
-    }
 );
 
 /* =========================================================
@@ -3000,7 +2954,7 @@ replayButton.addEventListener(
         );
 
         wishResult.textContent =
-            "";
+            "You don't have to write it down. Just close your eyes, make your wish, and keep it in your heart. ❤️";
 
         audioPlayer.pause();
 
