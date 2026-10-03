@@ -1,22 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
-
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy Birthday, Excy ❤️</title>
 
 <style>
-
-/* =========================
-   GENERAL
-========================= */
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -28,1325 +17,809 @@ html {
 }
 
 body {
-    font-family: Georgia, "Times New Roman", serif;
-    background: linear-gradient(
-        135deg,
-        #ffd6e7,
-        #f7b6d2,
-        #e8b7ff
-    );
-    color: #5c2445;
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    background: linear-gradient(135deg, #ffd6e7, #f9b5d0, #e8c8ff);
+    color: #5b2945;
     overflow-x: hidden;
 }
+
+/* =========================
+   GENERAL
+========================= */
 
 section {
     min-height: 100vh;
     padding: 70px 20px;
-
     display: flex;
-    flex-direction: column;
-
-    justify-content: center;
     align-items: center;
-
+    justify-content: center;
     position: relative;
 }
 
-h1 {
-    font-size: clamp(
-        2.5rem,
-        8vw,
-        5rem
-    );
-
-    color: #b52f68;
-
+.container {
+    width: 100%;
+    max-width: 900px;
     text-align: center;
+}
 
-    text-shadow:
-        0 3px 8px
-        rgba(0,0,0,0.15);
+h1 {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    color: #b83268;
+    text-shadow: 0 4px 15px rgba(184, 50, 104, 0.2);
 }
 
 h2 {
-    font-size: clamp(
-        2rem,
-        6vw,
-        3rem
-    );
-
-    color: #a82c62;
-
-    margin-bottom: 25px;
-
-    text-align: center;
+    font-size: clamp(2rem, 6vw, 3rem);
+    color: #b83268;
+    margin-bottom: 20px;
 }
 
 p {
     line-height: 1.8;
 }
 
-
 /* =========================
-   BUTTONS
+   FLOATING HEARTS
 ========================= */
 
-button {
-    border: none;
-
-    cursor: pointer;
-
-    font-family: inherit;
-
-    transition: 0.3s ease;
+.heart {
+    position: fixed;
+    bottom: -40px;
+    font-size: 20px;
+    animation: floatHeart linear forwards;
+    pointer-events: none;
+    z-index: 100;
 }
 
-.main-btn {
-    margin-top: 30px;
+@keyframes floatHeart {
+    0% {
+        transform: translateY(0) scale(0.7) rotate(0deg);
+        opacity: 0;
+    }
 
-    padding:
-        16px
-        30px;
+    10% {
+        opacity: 1;
+    }
 
-    border-radius: 50px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #d94d88,
-            #a72f69
-        );
-
-    color: white;
-
-    font-size: 1.1rem;
-
-    box-shadow:
-        0 8px 20px
-        rgba(150,40,90,0.3);
+    100% {
+        transform: translateY(-110vh) scale(1.4) rotate(30deg);
+        opacity: 0;
+    }
 }
-
-.main-btn:hover {
-    transform:
-        translateY(-3px)
-        scale(1.03);
-}
-
 
 /* =========================
    OPENING
 ========================= */
 
 #opening {
-
     background:
+        radial-gradient(circle at top left, #fff0f7, transparent 40%),
+        linear-gradient(135deg, #ffd5e6, #f7b4d0, #dfb9f4);
+}
 
-        radial-gradient(
-            circle at 20% 20%,
-            rgba(255,255,255,0.5),
-            transparent 25%
-        ),
-
-        radial-gradient(
-            circle at 80% 70%,
-            rgba(255,255,255,0.4),
-            transparent 25%
-        ),
-
-        linear-gradient(
-            135deg,
-            #ffd6e7,
-            #eab7ff
-        );
+.opening-content {
+    animation: fadeIn 1.5s ease;
 }
 
 .subtitle {
-
-    margin-top: 15px;
-
-    font-size: 1.2rem;
-
-    text-align: center;
-
-    color: #7b3c5c;
+    margin: 15px 0 35px;
+    font-size: 1.15rem;
+    color: #70415b;
 }
 
-
-/* =========================
-   MUSIC PLAYER
-========================= */
-
-.music-player {
-
-    position: fixed;
-
-    right: 15px;
-
-    bottom: 15px;
-
-    width:
-        min(
-            380px,
-            calc(100% - 30px)
-        );
-
-    background:
-        rgba(
-            255,
-            255,
-            255,
-            0.95
-        );
-
-    backdrop-filter:
-        blur(12px);
-
-    border-radius: 20px;
-
-    padding: 18px;
-
-    box-shadow:
-        0 8px 25px
-        rgba(100,30,70,0.2);
-
-    z-index: 9999;
-
-    display: none;
-}
-
-.music-player.show {
-    display: block;
-}
-
-.song-title {
-
-    text-align: center;
-
-    font-weight: bold;
-
-    color: #a82c62;
-
-    margin-bottom: 12px;
-
-    font-size: 1rem;
-}
-
-.music-player audio {
-
-    width: 100%;
-
-    display: block;
-}
-
-.music-controls {
-
-    display: flex;
-
-    justify-content: center;
-
-    gap: 10px;
-
-    margin-top: 12px;
-}
-
-.music-controls button {
-
-    width: 45px;
-
-    height: 45px;
-
-    border-radius: 50%;
-
-    background: #f3a4c7;
-
-    color: #6b2147;
-
-    font-size: 1.1rem;
-}
-
-.music-controls button:hover {
-
-    transform: scale(1.08);
-
-    background: #e889b5;
-}
-
-
-/* =========================
-   LETTER
-========================= */
-
-#letter-section {
-
-    background:
-        linear-gradient(
-            135deg,
-            #ffe5ef,
-            #f8cbe0
-        );
-}
-
-.envelope-container {
-
-    width:
-        min(
-            650px,
-            95%
-        );
-
-    perspective: 1000px;
-}
-
-.envelope {
-
-    position: relative;
-
-    width: 100%;
-
-    min-height: 160px;
-
-    background: #e79abc;
-
-    border-radius: 12px;
-
-    box-shadow:
-        0 15px 35px
-        rgba(120,30,70,0.2);
-
-    cursor: pointer;
-
-    overflow: hidden;
-}
-
-.envelope-front {
-
-    min-height: 160px;
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
+.main-button {
+    border: none;
+    background: linear-gradient(135deg, #d83b78, #b52c68);
     color: white;
-
-    font-size: 1.4rem;
-
+    padding: 17px 30px;
+    border-radius: 50px;
+    font-size: 1.05rem;
     font-weight: bold;
-
-    text-align: center;
-
-    padding: 20px;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(181, 44, 104, 0.3);
+    transition: 0.3s;
 }
 
-.envelope-front::before {
-
-    content: "💌";
-
-    font-size: 3rem;
-
-    margin-right: 12px;
+.main-button:hover {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 15px 30px rgba(181, 44, 104, 0.4);
 }
 
-.letter {
-
-    display: none;
-
-    background: #fffafc;
-
-    padding: 35px;
-
-    border-radius: 15px;
-
-    box-shadow:
-        0 15px 35px
-        rgba(120,30,70,0.18);
-
-    animation:
-        letterOpen
-        0.8s
-        ease;
+.main-button:active {
+    transform: scale(0.97);
 }
 
-.letter.open {
-
-    display: block;
-}
-
-.letter p {
-
-    margin-bottom: 18px;
-
-    font-size: 1rem;
-}
-
-@keyframes letterOpen {
-
+@keyframes fadeIn {
     from {
-
         opacity: 0;
-
-        transform:
-            translateY(30px)
-            scale(0.95);
+        transform: translateY(30px);
     }
 
     to {
-
         opacity: 1;
-
-        transform:
-            translateY(0)
-            scale(1);
+        transform: translateY(0);
     }
 }
 
+/* =========================
+   ENVELOPE
+========================= */
+
+#letter-section {
+    display: none;
+    background: linear-gradient(135deg, #fff1f7, #ffd9e9);
+}
+
+.envelope-area {
+    width: 100%;
+    max-width: 700px;
+}
+
+.envelope {
+    width: min(90vw, 600px);
+    height: 360px;
+    margin: 0 auto 35px;
+    position: relative;
+    cursor: pointer;
+    perspective: 1000px;
+}
+
+.envelope-back {
+    position: absolute;
+    inset: 0;
+    background: #f28db4;
+    border-radius: 10px;
+    box-shadow: 0 20px 50px rgba(117, 42, 79, 0.2);
+}
+
+.envelope-paper {
+    position: absolute;
+    width: 88%;
+    height: 90%;
+    left: 6%;
+    bottom: 5%;
+    background: #fffafc;
+    border-radius: 7px;
+    padding: 25px;
+    overflow-y: auto;
+    z-index: 2;
+    transition: 1s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.envelope-paper p {
+    text-align: left;
+    font-size: 0.98rem;
+}
+
+.envelope-flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: min(45vw, 300px) solid transparent;
+    border-right: min(45vw, 300px) solid transparent;
+    border-top: 190px solid #e96f9f;
+    transform-origin: top;
+    transition: 1s ease;
+    z-index: 4;
+}
+
+.envelope-front {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.envelope-front::before,
+.envelope-front::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-bottom: 180px solid #ef83ac;
+}
+
+.envelope-front::before {
+    left: 0;
+    border-right: 300px solid transparent;
+}
+
+.envelope-front::after {
+    right: 0;
+    border-left: 300px solid transparent;
+}
+
+.envelope.open .envelope-flap {
+    transform: rotateX(180deg);
+    z-index: 1;
+}
+
+.envelope.open .envelope-paper {
+    transform: translateY(-110px);
+}
+
+.open-letter-label {
+    margin-top: 15px;
+    color: #b83268;
+    font-weight: bold;
+}
+
+/* =========================
+   MUSIC
+========================= */
+
+.music-player {
+    display: none;
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    z-index: 200;
+}
+
+.music-button {
+    border: none;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: #b83268;
+    color: white;
+    font-size: 1.3rem;
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
 
 /* =========================
    CAKE
 ========================= */
 
 #cake-section {
+    display: none;
+    background: linear-gradient(135deg, #ffe5ef, #f7d8ff);
+}
 
-    background:
-        linear-gradient(
-            135deg,
-            #f9d5e5,
-            #eec8ff
-        );
+.cake-wrapper {
+    margin: 40px auto;
+    position: relative;
+    width: 300px;
+    height: 300px;
 }
 
 .cake {
-
-    position: relative;
-
+    position: absolute;
     width: 250px;
-
-    margin: 40px auto;
+    height: 115px;
+    left: 25px;
+    bottom: 35px;
 }
 
 .cake-top {
-
-    width: 230px;
-
-    height: 70px;
-
-    margin: auto;
-
-    background: #f4a7c4;
-
+    position: absolute;
+    width: 250px;
+    height: 65px;
+    background: #ffb6cf;
     border-radius: 50%;
-
-    position: relative;
-
+    top: 0;
     z-index: 3;
+    box-shadow: inset 0 -8px 0 rgba(194, 71, 117, 0.15);
 }
 
 .cake-body {
-
-    width: 230px;
-
+    position: absolute;
+    width: 250px;
     height: 100px;
-
-    margin:
-        -30px
-        auto
-        0;
-
-    background:
-        linear-gradient(
-            #e985ad,
-            #d85c91
-        );
-
-    border-radius:
-        10px
-        10px
-        25px
-        25px;
-
-    position: relative;
-
+    top: 30px;
+    background: linear-gradient(#f78db3, #e86c9b);
+    border-radius: 0 0 25px 25px;
     z-index: 2;
 }
 
-.cake-body::after {
-
-    content:
-        "🍓  ✨  🍓  ✨  🍓";
-
+.icing {
     position: absolute;
+    width: 250px;
+    height: 35px;
+    top: 22px;
+    z-index: 4;
+}
 
+.drip {
+    position: absolute;
+    width: 25px;
+    height: 45px;
+    background: #fff2f7;
+    border-radius: 0 0 20px 20px;
+}
+
+.drip:nth-child(1) { left: 25px; }
+.drip:nth-child(2) { left: 75px; height: 55px; }
+.drip:nth-child(3) { left: 130px; height: 40px; }
+.drip:nth-child(4) { left: 180px; height: 52px; }
+
+.cake-plate {
+    position: absolute;
+    width: 290px;
+    height: 25px;
     bottom: 20px;
-
-    width: 100%;
-
-    text-align: center;
-
-    font-size: 1.3rem;
-}
-
-.plate {
-
-    width: 280px;
-
-    height: 20px;
-
-    background: white;
-
+    left: 5px;
+    background: #fff;
     border-radius: 50%;
-
-    margin:
-        -5px
-        auto
-        0;
-
-    box-shadow:
-        0 5px 15px
-        rgba(0,0,0,0.15);
-}
-
-.candles {
-
-    position: absolute;
-
-    top: -80px;
-
-    left: 35px;
-
-    right: 35px;
-
-    display: flex;
-
-    justify-content:
-        space-around;
-
-    z-index: 5;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.15);
 }
 
 .candle {
+    position: absolute;
+    bottom: 112px;
+    width: 18px;
+    height: 65px;
+    background: repeating-linear-gradient(
+        45deg,
+        #fff,
+        #fff 7px,
+        #ff75a8 7px,
+        #ff75a8 13px
+    );
+    border-radius: 5px 5px 2px 2px;
+    z-index: 10;
+}
 
-    width: 16px;
+.candle1 {
+    left: 75px;
+}
 
-    height: 60px;
+.candle2 {
+    left: 116px;
+}
 
-    background:
-        repeating-linear-gradient(
-            45deg,
-            #fff,
-            #fff 7px,
-            #ff9fc5 7px,
-            #ff9fc5 14px
-        );
-
-    border-radius: 5px;
-
-    position: relative;
+.candle3 {
+    left: 157px;
 }
 
 .flame {
-
     position: absolute;
-
     width: 18px;
-
-    height: 25px;
-
-    background: orange;
-
-    border-radius:
-        50%
-        50%
-        50%
-        0;
-
-    transform:
-        rotate(-45deg);
-
-    top: -22px;
-
-    left: -1px;
-
-    animation:
-        flicker
-        0.7s
-        infinite alternate;
+    height: 28px;
+    top: -30px;
+    left: 0;
+    background: radial-gradient(circle at 50% 70%, #fff 10%, #ffd84d 35%, #ff7b00 70%);
+    border-radius: 50% 50% 50% 50%;
+    transform: rotate(2deg);
+    animation: flame 0.7s infinite alternate;
+    box-shadow: 0 0 15px #ffb300;
 }
 
 .flame.off {
-
     display: none;
 }
 
-@keyframes flicker {
-
+@keyframes flame {
     from {
-
-        transform:
-            rotate(-45deg)
-            scale(1);
+        transform: scale(0.9) rotate(-3deg);
     }
 
     to {
-
-        transform:
-            rotate(-45deg)
-            scale(1.12);
+        transform: scale(1.1) rotate(4deg);
     }
 }
 
+.cake-message {
+    margin-top: 15px;
+    font-size: 1.1rem;
+    color: #9c3a66;
+}
+
+.blow-button {
+    margin-top: 25px;
+}
 
 /* =========================
    11:11
 ========================= */
 
 #wish-section {
-
-    background:
-        linear-gradient(
-            135deg,
-            #e7c5ff,
-            #ffc8df
-        );
-
-    text-align: center;
+    display: none;
+    background: linear-gradient(135deg, #eecbff, #ffd7e8);
 }
 
 .clock {
-
-    font-size:
-        clamp(
-            4rem,
-            15vw,
-            8rem
-        );
-
+    font-size: clamp(4rem, 15vw, 8rem);
     font-weight: bold;
-
-    color: #9b2f68;
-
-    text-shadow:
-        0 5px 15px
-        rgba(0,0,0,0.15);
-
-    margin: 25px 0;
+    color: #a62f68;
+    text-shadow: 0 5px 20px rgba(166, 47, 104, 0.2);
+    margin: 20px 0;
 }
 
-.wish-box {
-
-    background:
-        rgba(
-            255,
-            255,
-            255,
-            0.65
-        );
-
-    padding: 30px;
-
-    border-radius: 25px;
-
-    width:
-        min(
-            600px,
-            95%
-        );
-
-    box-shadow:
-        0 10px 30px
-        rgba(100,30,80,0.15);
-}
-
-#wishMessage {
-
-    margin-top: 20px;
-
+.wish-text {
     font-size: 1.2rem;
-
-    display: none;
-
-    color: #a72f69;
-
-    font-weight: bold;
+    margin-bottom: 25px;
 }
 
+.wish-button {
+    border: none;
+    background: #b83268;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.wish-message {
+    margin-top: 25px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #a62f68;
+    display: none;
+}
 
 /* =========================
    GIFTS
 ========================= */
 
 #gifts-section {
-
-    background:
-        linear-gradient(
-            135deg,
-            #ffd7e8,
-            #e5c5ff
-        );
+    display: none;
+    background: linear-gradient(135deg, #ffdbea, #efd4ff);
 }
 
 .gifts {
-
-    width:
-        min(
-            1000px,
-            95%
-        );
-
     display: grid;
-
-    grid-template-columns:
-        repeat(
-            3,
-            1fr
-        );
-
-    gap: 25px;
-
-    margin-top: 30px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 35px;
 }
 
 .gift {
-
-    background:
-        rgba(
-            255,
-            255,
-            255,
-            0.72
-        );
-
+    background: rgba(255,255,255,0.75);
     border-radius: 25px;
-
     padding: 30px 20px;
-
-    text-align: center;
-
-    box-shadow:
-        0 10px 25px
-        rgba(100,30,80,0.15);
-
     cursor: pointer;
-
-    transition: 0.3s ease;
+    transition: 0.3s;
+    box-shadow: 0 10px 30px rgba(100,30,70,0.12);
 }
 
 .gift:hover {
-
-    transform:
-        translateY(-8px);
+    transform: translateY(-10px) rotate(1deg);
 }
 
 .gift-icon {
-
     font-size: 4rem;
-
     margin-bottom: 15px;
 }
 
-.gift-message {
+.gift h3 {
+    color: #a62f68;
+    margin-bottom: 10px;
+}
 
+.gift-message {
     display: none;
-
     margin-top: 15px;
-
-    color: #9b2f68;
-
-    font-weight: bold;
-
-    line-height: 1.6;
+    font-size: 0.95rem;
 }
-
-.gift.opened
-.gift-message {
-
-    display: block;
-}
-
 
 /* =========================
    FINAL
 ========================= */
 
 #final-section {
-
-    background:
-
-        radial-gradient(
-            circle at 30% 30%,
-            rgba(255,255,255,0.5),
-            transparent 20%
-        ),
-
-        radial-gradient(
-            circle at 70% 70%,
-            rgba(255,255,255,0.4),
-            transparent 20%
-        ),
-
-        linear-gradient(
-            135deg,
-            #f8b5d0,
-            #d9b7ff
-        );
-
-    text-align: center;
-}
-
-.final-message {
-
-    width:
-        min(
-            700px,
-            95%
-        );
-
-    background:
-        rgba(
-            255,
-            255,
-            255,
-            0.65
-        );
-
-    padding: 40px;
-
-    border-radius: 30px;
-
-    box-shadow:
-        0 15px 35px
-        rgba(100,30,80,0.18);
+    display: none;
+    background: linear-gradient(135deg, #f7bfd8, #d9b5f0);
 }
 
 .final-heart {
-
-    font-size: 6rem;
-
-    animation:
-        heartbeat
-        1.2s
-        infinite;
-
-    margin: 25px 0;
+    font-size: 7rem;
+    animation: heartbeat 1s infinite;
 }
 
 @keyframes heartbeat {
-
-    0%,
-    100% {
-
+    0%, 100% {
         transform: scale(1);
     }
 
     50% {
-
-        transform: scale(1.15);
+        transform: scale(1.18);
     }
 }
 
+.final-message {
+    max-width: 650px;
+    margin: 20px auto;
+    font-size: 1.2rem;
+}
 
 /* =========================
-   FLOATING HEARTS
+   CONFETTI
 ========================= */
 
-.heart {
-
+.confetti {
     position: fixed;
-
-    bottom: -30px;
-
-    font-size: 25px;
-
-    pointer-events: none;
-
-    animation:
-        floatHeart
-        5s
-        linear
-        forwards;
-
-    z-index: 10000;
+    top: -20px;
+    width: 10px;
+    height: 18px;
+    z-index: 999;
+    animation: confettiFall 3s linear forwards;
 }
 
-@keyframes floatHeart {
-
-    0% {
-
-        transform:
-            translateY(0)
-            rotate(0deg);
-
-        opacity: 1;
-    }
-
-    100% {
-
-        transform:
-            translateY(-110vh)
-            rotate(360deg);
-
-        opacity: 0;
-    }
-}
-
-
-/* =========================
-   HEART EXPLOSION
-========================= */
-
-.explosion-heart {
-
-    position: fixed;
-
-    left: 50%;
-
-    top: 50%;
-
-    font-size: 30px;
-
-    pointer-events: none;
-
-    z-index: 10001;
-
-    animation:
-        explode
-        1.5s
-        ease-out
-        forwards;
-}
-
-@keyframes explode {
-
-    from {
-
-        transform:
-            translate(
-                -50%,
-                -50%
-            )
-            scale(0);
-
-        opacity: 1;
-    }
-
+@keyframes confettiFall {
     to {
-
-        transform:
-            translate(
-                calc(-50% + var(--x)),
-                calc(-50% + var(--y))
-            )
-            scale(1.5);
-
+        transform: translateY(110vh) rotate(720deg);
         opacity: 0;
     }
 }
 
-
 /* =========================
-   MOBILE
+   RESPONSIVE
 ========================= */
 
 @media (max-width: 700px) {
 
     section {
+        padding: 50px 15px;
+    }
 
-        padding:
-            60px
-            15px;
+    .envelope {
+        height: 300px;
+    }
+
+    .envelope-flap {
+        border-left-width: 45vw;
+        border-right-width: 45vw;
+        border-top-width: 155px;
+    }
+
+    .envelope-front::before,
+    .envelope-front::after {
+        border-bottom-width: 150px;
+    }
+
+    .envelope-front::before {
+        border-right-width: 45vw;
+    }
+
+    .envelope-front::after {
+        border-left-width: 45vw;
+    }
+
+    .envelope-paper {
+        font-size: 0.85rem;
+        padding: 18px;
     }
 
     .gifts {
-
         grid-template-columns: 1fr;
     }
 
-    .letter {
-
-        padding:
-            25px
-            20px;
+    .cake-wrapper {
+        transform: scale(0.9);
     }
-
-    .letter p {
-
-        font-size: 0.95rem;
-    }
-
-    .cake {
-
-        transform:
-            scale(0.85);
-    }
-
-    .music-player {
-
-        bottom: 10px;
-
-        right: 10px;
-
-        left: 10px;
-
-        width: auto;
-    }
-
 }
-
 </style>
-
 </head>
 
 <body>
 
+<!-- =========================
+     FLOATING HEARTS
+========================= -->
 
-<!-- =====================================
+<div id="hearts"></div>
+
+<!-- =========================
+     AUDIO
+========================= -->
+
+<audio id="music" preload="auto">
+    <source src="song1.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="magnolia" preload="auto">
+    <source src="song2.mp3" type="audio/mpeg">
+</audio>
+
+<div class="music-player" id="musicPlayer">
+    <button class="music-button" id="musicButton">🎵</button>
+</div>
+
+<!-- =========================
      OPENING
-===================================== -->
+========================= -->
 
 <section id="opening">
 
-    <h1>
-        Happy Birthday, Excy ❤️
-    </h1>
+    <div class="container opening-content">
 
-    <p class="subtitle">
-        I made something special for you...
-    </p>
+        <div style="font-size:4rem;">🎂</div>
 
-    <button
-        class="main-btn"
-        onclick="openSurprise()"
-    >
-        💌 Open Your Surprise
-    </button>
+        <h1>Happy Birthday, Excy ❤️</h1>
+
+        <p class="subtitle">
+            I made something special for you...
+        </p>
+
+        <button class="main-button" id="openButton">
+            💌 Open Your Surprise
+        </button>
+
+    </div>
 
 </section>
 
-
-<!-- =====================================
-     MUSIC PLAYER
-===================================== -->
-
-<div
-    class="music-player"
-    id="musicPlayer"
->
-
-    <div
-        class="song-title"
-        id="songTitle"
-    >
-        🎵 12:51 — Krissy & Ericka
-    </div>
-
-    <!--
-        NATIVE AUDIO PLAYER
-
-        We are intentionally using
-        the browser's own controls first
-        so we can confirm the MP3 files
-        are working correctly.
-    -->
-
-    <audio
-        id="music"
-        controls
-        preload="metadata"
-    >
-
-        <source
-            src="song1.mp3"
-            type="audio/mpeg"
-        >
-
-        Your browser does not support
-        HTML5 audio.
-
-    </audio>
-
-
-    <div class="music-controls">
-
-        <button
-            onclick="previousSong()"
-            aria-label="Previous song"
-        >
-            ⏮️
-        </button>
-
-        <button
-            onclick="nextSong()"
-            aria-label="Next song"
-        >
-            ⏭️
-        </button>
-
-    </div>
-
-</div>
-
-
-<!-- =====================================
+<!-- =========================
      LETTER
-===================================== -->
+========================= -->
 
 <section id="letter-section">
 
-    <h2>
-        💌 A Letter For You
-    </h2>
+    <div class="container envelope-area">
 
-    <div class="envelope-container">
+        <h2>A Little Letter For You 💌</h2>
 
-        <div
-            class="envelope"
-            onclick="openLetter()"
-        >
+        <div class="envelope" id="envelope">
 
-            <div class="envelope-front">
+            <div class="envelope-back"></div>
 
-                Tap the envelope to open 💕
+            <div class="envelope-paper">
+
+                <p>
+                    Happy birthday, Excy. I’m really proud of what you have become and how much you’ve changed. I’ve seen all the changes you’ve made, and I really hope you keep it up. Gusto lang nako nga kabalo ka nga I’ll always be here, supporting you, loving you, caring for you, and being proud of you. I hope you enjoy your day and spend it with the people who make you happy. Deserve nimo tanan nga good things nga moabot sa imo life. Sana this new year of your life gives you more happiness, more memories, and more reasons to smile. Enjoy lang sa imong day and ayaw kaayo kabalaka sa mga things nga makapastress nimo. I’m really happy nga nakakita ko sa imong growth and sa person nga nahimo nimo karon. Padayon lang gyud sa imong life, even when things get difficult. Kaya nimo na. I’ll always be proud of you, no matter how big or small your achievements are. And I hope all of your 11:11 wishes come true. Sana matuman tanan nimong gipangandoy, even the wishes you keep to yourself. I hope makuha nimo ang happiness nga deserve nimo and that this year will be good to you. Happy birthday again, Excy. Enjoy kaayo today, ha. Amping always and enjoy every moment of your day.
+                </p>
 
             </div>
 
-        </div>
-
-
-        <div
-            class="letter"
-            id="letter"
-        >
-
-            <p>
-                Happy birthday, Excy. I’m really proud of what you have become and how much you’ve changed. I’ve seen all the changes you’ve made, and I really hope you keep it up. Gusto lang nako nga kabalo ka nga I’ll always be here, supporting you, loving you, caring for you, and being proud of you. I hope you enjoy your day and spend it with the people who make you happy. Deserve nimo tanan nga good things nga moabot sa imo life. Sana this new year of your life gives you more happiness, more memories, and more reasons to smile. Enjoy lang sa imong day and ayaw kaayo kabalaka sa mga things nga makapastress nimo.
-            </p>
-
-            <p>
-                I’m really happy nga nakakita ko sa imong growth and sa person nga nahimo nimo karon. Padayon lang gyud sa imong life, even when things get difficult. Kaya nimo na. I’ll always be proud of you, no matter how big or small your achievements are.
-            </p>
-
-            <p>
-                And I hope all of your 11:11 wishes come true. Sana matuman tanan nimong gipangandoy, even the wishes you keep to yourself. I hope makuha nimo ang happiness nga deserve nimo and that this year will be good to you.
-            </p>
-
-            <p>
-                Happy birthday again, Excy. Enjoy kaayo today, ha. Amping always and enjoy every moment of your day.
-            </p>
+            <div class="envelope-flap"></div>
+            <div class="envelope-front"></div>
 
         </div>
+
+        <p class="open-letter-label">
+            💗 Your letter is waiting for you...
+        </p>
 
     </div>
 
 </section>
 
-
-<!-- =====================================
+<!-- =========================
      CAKE
-===================================== -->
+========================= -->
 
 <section id="cake-section">
 
-    <h2>
-        🎂 Make a Wish
-    </h2>
+    <div class="container">
 
-    <p>
-        Blow the candles and make your birthday wish.
-    </p>
+        <h2>Make a Wish 🎂</h2>
 
+        <p>
+            Your birthday cake is ready!
+        </p>
 
-    <div class="cake">
+        <div class="cake-wrapper">
 
-        <div class="candles">
+            <div class="cake">
 
-            <div class="candle">
+                <div class="cake-top"></div>
 
-                <div class="flame"></div>
+                <div class="icing">
+                    <div class="drip"></div>
+                    <div class="drip"></div>
+                    <div class="drip"></div>
+                    <div class="drip"></div>
+                </div>
 
-            </div>
-
-
-            <div class="candle">
-
-                <div class="flame"></div>
-
-            </div>
-
-
-            <div class="candle">
-
-                <div class="flame"></div>
+                <div class="cake-body"></div>
 
             </div>
+
+            <div class="candle candle1">
+                <div class="flame"></div>
+            </div>
+
+            <div class="candle candle2">
+                <div class="flame"></div>
+            </div>
+
+            <div class="candle candle3">
+                <div class="flame"></div>
+            </div>
+
+            <div class="cake-plate"></div>
 
         </div>
 
+        <p class="cake-message" id="cakeMessage">
+            Close your eyes, make a wish, and blow the candles. 🥹❤️
+        </p>
 
-        <div class="cake-top"></div>
-
-        <div class="cake-body"></div>
-
-        <div class="plate"></div>
+        <button class="main-button blow-button" id="blowButton">
+            🌬️ Blow the Candles
+        </button>
 
     </div>
 
-
-    <button
-        class="main-btn"
-        onclick="blowCandles()"
-    >
-        🕯️ Blow the Candles
-    </button>
-
-
-    <p
-        id="candleMessage"
-        style="
-            margin-top:20px;
-            display:none;
-            font-weight:bold;
-        "
-    >
-        ✨ May your wish come true! ✨
-    </p>
-
 </section>
 
-
-<!-- =====================================
+<!-- =========================
      11:11
-===================================== -->
+========================= -->
 
 <section id="wish-section">
 
-    <h2>
-        ✨ Your 11:11 Wish ✨
-    </h2>
+    <div class="container">
 
+        <h2>It's 11:11 ✨</h2>
 
-    <div class="clock">
-        11:11
-    </div>
+        <div class="clock">
+            11:11
+        </div>
 
-
-    <div class="wish-box">
-
-        <p>
-            Close your eyes for a moment...
+        <p class="wish-text">
+            Make your birthday wish. 💗
         </p>
 
-        <p
-            style="margin-top:10px;"
-        >
-            Think of something you've been wishing for.
-        </p>
-
-
-        <button
-            class="main-btn"
-            onclick="makeWish()"
-        >
-            💫 Make Your Wish
+        <button class="wish-button" id="wishButton">
+            ✨ Make My Wish
         </button>
 
-
-        <p id="wishMessage">
-
-            🌟 I hope your 11:11 wish comes true.
-            You deserve all the happiness, love, and good things
-            that life has to offer. ❤️
-
+        <p class="wish-message" id="wishMessage">
+            May all the wishes you keep in your heart come true. ❤️
         </p>
 
     </div>
 
 </section>
 
-
-<!-- =====================================
+<!-- =========================
      GIFTS
-===================================== -->
+========================= -->
 
 <section id="gifts-section">
 
-    <h2>
-        🎁 Three Little Gifts
-    </h2>
+    <div class="container">
 
-    <p>
-        Tap each gift to open it.
-    </p>
+        <h2>Three Little Gifts For You 🎁</h2>
 
+        <p>
+            You have three surprises waiting...
+        </p>
 
-    <div class="gifts">
+        <div class="gifts">
 
+            <div class="gift" onclick="openGift(1)">
+                <div class="gift-icon">🎁</div>
+                <h3>Gift #1</h3>
+                <p>Click me</p>
 
-        <div
-            class="gift"
-            onclick="openGift(this)"
-        >
-
-            <div class="gift-icon">
-                🎁
+                <div class="gift-message" id="gift1">
+                    You deserve all the happiness in the world. 💗
+                </div>
             </div>
 
-            <h3>
-                Gift #1
-            </h3>
+            <div class="gift" onclick="openGift(2)">
+                <div class="gift-icon">🎀</div>
+                <h3>Gift #2</h3>
+                <p>Click me</p>
 
-            <div class="gift-message">
-
-                💕 A reminder that you are loved,
-                appreciated, and important.
-
+                <div class="gift-message" id="gift2">
+                    I hope this year gives you beautiful memories you'll always remember. 🌸
+                </div>
             </div>
 
-        </div>
+            <div class="gift" onclick="openGift(3)">
+                <div class="gift-icon">💝</div>
+                <h3>Gift #3</h3>
+                <p>Click me</p>
 
+                <div class="gift-message" id="gift3">
+                    And here's one more song for you. 🎵
+                    <br><br>
 
-        <div
-            class="gift"
-            onclick="openGift(this)"
-        >
-
-            <div class="gift-icon">
-                🎀
-            </div>
-
-            <h3>
-                Gift #2
-            </h3>
-
-            <div class="gift-message">
-
-                🌷 I hope you continue growing,
-                chasing your dreams, and becoming
-                the person you want to be.
-
-            </div>
-
-        </div>
-
-
-        <div
-            class="gift"
-            onclick="openGift(this)"
-        >
-
-            <div class="gift-icon">
-                💝
-            </div>
-
-            <h3>
-                Gift #3
-            </h3>
-
-            <div class="gift-message">
-
-                ❤️ No matter what happens,
-                I'll always be proud of you
-                and cheering for you.
-
+                    <button class="main-button"
+                        onclick="event.stopPropagation(); playMagnolia();">
+                        🎵 Play Magnolia
+                    </button>
+                </div>
             </div>
 
         </div>
@@ -1355,65 +828,39 @@ button {
 
 </section>
 
-
-<!-- =====================================
+<!-- =========================
      FINAL
-===================================== -->
+========================= -->
 
 <section id="final-section">
 
-    <div class="final-message">
-
-        <h2>
-            One Last Thing...
-        </h2>
-
+    <div class="container">
 
         <div class="final-heart">
             ❤️
         </div>
 
+        <h2>One Last Thing...</h2>
 
-        <p
-            style="font-size:1.2rem;"
-        >
-            Happy Birthday, Excy!
-        </p>
-
-
-        <p
-            style="margin-top:15px;"
-        >
+        <p class="final-message">
+            Happy birthday again, Excy. ❤️
+            <br><br>
             I hope today reminds you of how loved,
             appreciated, and special you are.
+            <br><br>
+            Keep growing. Keep smiling.
+            Keep being the person you are becoming.
+            <br><br>
+            And always remember...
+            <br><br>
+            <strong>
+                I'll always be proud of you. ❤️
+            </strong>
         </p>
 
-
-        <p
-            style="margin-top:15px;"
-        >
-            Enjoy your day. Make memories.
-            Smile a lot.
-        </p>
-
-
-        <p
-            style="
-                margin-top:20px;
-                font-weight:bold;
-            "
-        >
-            And never forget that someone will always
-            be proud of you. ❤️
-        </p>
-
-
-        <button
-            class="main-btn"
-            onclick="heartExplosion()"
-        >
-            💕 One More Surprise
-        </button>
+        <div style="font-size:3rem; margin-top:30px;">
+            🎂 💗 🎉
+        </div>
 
     </div>
 
@@ -1422,474 +869,408 @@ button {
 
 <script>
 
-/* =====================================
-   MUSIC
-===================================== */
-
-const songs = [
-
-    {
-        title:
-            "🎵 12:51 — Krissy & Ericka",
-
-        file:
-            "song1.mp3"
-    },
-
-    {
-        title:
-            "🎵 Magnolia",
-
-        file:
-            "song2.mp3"
-    }
-
-];
-
-
-let currentSong = 0;
-
-
-const music =
-    document.getElementById(
-        "music"
-    );
-
-
-const musicPlayer =
-    document.getElementById(
-        "musicPlayer"
-    );
-
-
-const songTitle =
-    document.getElementById(
-        "songTitle"
-    );
-
-
 /* =========================
-   LOAD SONG
+   ELEMENTS
 ========================= */
 
-function loadSong(index) {
+const opening = document.getElementById("opening");
+const letterSection = document.getElementById("letter-section");
+const cakeSection = document.getElementById("cake-section");
+const wishSection = document.getElementById("wish-section");
+const giftsSection = document.getElementById("gifts-section");
+const finalSection = document.getElementById("final-section");
 
-    currentSong = index;
+const openButton = document.getElementById("openButton");
+const envelope = document.getElementById("envelope");
 
-    music.pause();
+const music = document.getElementById("music");
+const magnolia = document.getElementById("magnolia");
+const musicPlayer = document.getElementById("musicPlayer");
+const musicButton = document.getElementById("musicButton");
 
-    music.src =
-        songs[currentSong].file;
-
-    songTitle.textContent =
-        songs[currentSong].title;
-
-    music.load();
-
-}
+let musicPlaying = false;
 
 
 /* =========================
    OPEN SURPRISE
 ========================= */
 
-function openSurprise() {
+openButton.addEventListener("click", function() {
 
-    musicPlayer.classList.add(
-        "show"
-    );
+    // Show letter section
+    letterSection.style.display = "flex";
 
-    loadSong(0);
+    // Scroll to letter
+    letterSection.scrollIntoView({
+        behavior: "smooth"
+    });
 
-    document
-        .getElementById(
-            "letter-section"
-        )
-        .scrollIntoView({
+    // OPEN ENVELOPE
+    setTimeout(() => {
+
+        envelope.classList.add("open");
+
+        // Start 12:51 immediately after envelope click
+        music.currentTime = 0;
+        music.volume = 0.75;
+
+        music.play()
+            .then(() => {
+
+                musicPlaying = true;
+
+                musicPlayer.style.display = "block";
+                musicButton.textContent = "⏸️";
+
+            })
+            .catch(error => {
+
+                console.log("Music could not autoplay:", error);
+
+                musicPlayer.style.display = "block";
+                musicButton.textContent = "🎵";
+
+            });
+
+    }, 500);
+
+    // Move to cake after letter
+    setTimeout(() => {
+
+        cakeSection.style.display = "flex";
+
+        cakeSection.scrollIntoView({
             behavior: "smooth"
         });
 
-    createHearts();
+    }, 6500);
+
+});
+
+
+/* =========================
+   MUSIC BUTTON
+========================= */
+
+musicButton.addEventListener("click", function() {
+
+    if (music.paused) {
+
+        magnolia.pause();
+
+        music.play()
+            .then(() => {
+
+                musicPlaying = true;
+                musicButton.textContent = "⏸️";
+
+            })
+            .catch(error => {
+
+                console.log(error);
+
+            });
+
+    } else {
+
+        music.pause();
+
+        musicPlaying = false;
+        musicButton.textContent = "🎵";
+
+    }
+
+});
+
+
+/* =========================
+   MAGNOLIA
+========================= */
+
+function playMagnolia() {
+
+    music.pause();
+
+    magnolia.currentTime = 0;
+    magnolia.volume = 0.75;
+
+    magnolia.play()
+        .then(() => {
+
+            musicPlayer.style.display = "block";
+            musicButton.textContent = "⏸️";
+
+        })
+        .catch(error => {
+
+            console.log("Magnolia could not play:", error);
+
+            alert("Please make sure song2.mp3 is uploaded to the same folder as index.html.");
+
+        });
 
 }
 
 
 /* =========================
-   NEXT SONG
+   CAKE / BLOW CANDLES
 ========================= */
 
-function nextSong() {
+const blowButton = document.getElementById("blowButton");
+const cakeMessage = document.getElementById("cakeMessage");
 
-    currentSong++;
+blowButton.addEventListener("click", function() {
 
-    if (
-        currentSong >=
-        songs.length
-    ) {
+    const flames = document.querySelectorAll(".flame");
 
-        currentSong = 0;
+    flames.forEach(flame => {
+        flame.classList.add("off");
+    });
 
-    }
+    cakeMessage.innerHTML =
+        "🎉 Wish made! Happy Birthday, Excy! ❤️";
 
-    loadSong(
-        currentSong
-    );
+    blowButton.innerHTML =
+        "🎉 Wish Made!";
 
-}
+    blowButton.disabled = true;
+
+    createConfetti();
+
+    setTimeout(() => {
+
+        wishSection.style.display = "flex";
+
+        wishSection.scrollIntoView({
+            behavior: "smooth"
+        });
+
+    }, 2500);
+
+});
 
 
 /* =========================
-   PREVIOUS SONG
+   11:11 WISH
 ========================= */
 
-function previousSong() {
+const wishButton = document.getElementById("wishButton");
+const wishMessage = document.getElementById("wishMessage");
 
-    currentSong--;
+wishButton.addEventListener("click", function() {
 
-    if (
-        currentSong < 0
-    ) {
+    wishMessage.style.display = "block";
 
-        currentSong =
-            songs.length - 1;
+    createHeartExplosion();
 
-    }
+    setTimeout(() => {
 
-    loadSong(
-        currentSong
-    );
+        giftsSection.style.display = "flex";
 
-}
+        giftsSection.scrollIntoView({
+            behavior: "smooth"
+        });
+
+    }, 2500);
+
+});
 
 
 /* =========================
-   SONG ENDED
+   GIFTS
 ========================= */
 
-music.addEventListener(
-    "ended",
-    function() {
+let openedGifts = 0;
 
-        nextSong();
+function openGift(number) {
 
-    }
-);
+    const gift = document.getElementById("gift" + number);
 
+    if (gift.style.display !== "block") {
 
-/* =========================
-   DEBUG
-========================= */
+        gift.style.display = "block";
 
-music.addEventListener(
-    "loadedmetadata",
-    function() {
+        openedGifts++;
 
-        console.log(
-            "Audio loaded:",
-            music.src
-        );
+        createHeartExplosion();
 
-        console.log(
-            "Duration:",
-            music.duration
-        );
+        if (openedGifts === 3) {
 
-    }
-);
+            setTimeout(() => {
 
+                finalSection.style.display = "flex";
 
-music.addEventListener(
-    "error",
-    function() {
+                finalSection.scrollIntoView({
+                    behavior: "smooth"
+                });
 
-        console.error(
-            "Audio error:",
-            music.error
-        );
+                createConfetti();
 
-        console.error(
-            "Attempted file:",
-            music.src
-        );
-
-    }
-);
-
-
-/* =====================================
-   LETTER
-===================================== */
-
-function openLetter() {
-
-    const letter =
-        document.getElementById(
-            "letter"
-        );
-
-    letter.classList.add(
-        "open"
-    );
-
-}
-
-
-/* =====================================
-   CANDLES
-===================================== */
-
-function blowCandles() {
-
-    const flames =
-        document.querySelectorAll(
-            ".flame"
-        );
-
-
-    flames.forEach(
-        function(flame) {
-
-            flame.classList.add(
-                "off"
-            );
+            }, 1800);
 
         }
-    );
-
-
-    document
-        .getElementById(
-            "candleMessage"
-        )
-        .style.display =
-        "block";
-
-
-    createHearts();
-
-}
-
-
-/* =====================================
-   11:11
-===================================== */
-
-function makeWish() {
-
-    const message =
-        document.getElementById(
-            "wishMessage"
-        );
-
-    message.style.display =
-        "block";
-
-    createHearts();
-
-}
-
-
-/* =====================================
-   GIFTS
-===================================== */
-
-function openGift(gift) {
-
-    gift.classList.toggle(
-        "opened"
-    );
-
-}
-
-
-/* =====================================
-   FLOATING HEARTS
-===================================== */
-
-function createHearts() {
-
-    for (
-        let i = 0;
-        i < 15;
-        i++
-    ) {
-
-        setTimeout(
-            function() {
-
-                const heart =
-                    document.createElement(
-                        "div"
-                    );
-
-
-                heart.className =
-                    "heart";
-
-
-                const hearts = [
-
-                    "❤️",
-                    "💕",
-                    "💗",
-                    "💖",
-                    "💓",
-                    "💞"
-
-                ];
-
-
-                heart.innerHTML =
-                    hearts[
-                        Math.floor(
-                            Math.random() *
-                            hearts.length
-                        )
-                    ];
-
-
-                heart.style.left =
-                    Math.random() *
-                    100 +
-                    "vw";
-
-
-                heart.style.animationDuration =
-                    3 +
-                    Math.random() *
-                    3 +
-                    "s";
-
-
-                heart.style.fontSize =
-                    18 +
-                    Math.random() *
-                    25 +
-                    "px";
-
-
-                document.body.appendChild(
-                    heart
-                );
-
-
-                setTimeout(
-                    function() {
-
-                        heart.remove();
-
-                    },
-                    6000
-                );
-
-
-            },
-            i * 150
-        );
 
     }
 
 }
 
 
-/* =====================================
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+function createHeart() {
+
+    const heart = document.createElement("div");
+
+    heart.className = "heart";
+
+    const hearts = ["❤️", "💕", "💗", "💖", "💓", "💘"];
+
+    heart.innerHTML =
+        hearts[Math.floor(Math.random() * hearts.length)];
+
+    heart.style.left =
+        Math.random() * 100 + "vw";
+
+    heart.style.fontSize =
+        (15 + Math.random() * 25) + "px";
+
+    heart.style.animationDuration =
+        (5 + Math.random() * 5) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 10000);
+
+}
+
+setInterval(createHeart, 700);
+
+
+/* =========================
    HEART EXPLOSION
-===================================== */
+========================= */
 
-function heartExplosion() {
+function createHeartExplosion() {
 
-    for (
-        let i = 0;
-        i < 60;
-        i++
-    ) {
+    for (let i = 0; i < 30; i++) {
 
-        const heart =
-            document.createElement(
-                "div"
-            );
+        const heart = document.createElement("div");
 
+        heart.innerHTML = "❤️";
 
-        heart.className =
-            "explosion-heart";
-
-
-        heart.innerHTML =
-            "❤️";
-
+        heart.style.position = "fixed";
+        heart.style.left = "50%";
+        heart.style.top = "50%";
+        heart.style.fontSize = "25px";
+        heart.style.zIndex = "999";
+        heart.style.pointerEvents = "none";
 
         const angle =
-            Math.random() *
-            Math.PI *
-            2;
-
+            Math.random() * Math.PI * 2;
 
         const distance =
-            100 +
-            Math.random() *
-            500;
-
+            100 + Math.random() * 300;
 
         const x =
-            Math.cos(angle) *
-            distance;
-
+            Math.cos(angle) * distance;
 
         const y =
-            Math.sin(angle) *
-            distance;
+            Math.sin(angle) * distance;
 
-
-        heart.style.setProperty(
-            "--x",
-            x + "px"
+        heart.animate(
+            [
+                {
+                    transform: "translate(-50%, -50%) scale(0)",
+                    opacity: 1
+                },
+                {
+                    transform:
+                        `translate(calc(-50% + ${x}px), calc(-50% + ${y}px)) scale(1.5)`,
+                    opacity: 0
+                }
+            ],
+            {
+                duration: 1200,
+                easing: "ease-out"
+            }
         );
 
+        document.body.appendChild(heart);
 
-        heart.style.setProperty(
-            "--y",
-            y + "px"
-        );
-
-
-        heart.style.fontSize =
-            15 +
-            Math.random() *
-            30 +
-            "px";
-
-
-        document.body.appendChild(
-            heart
-        );
-
-
-        setTimeout(
-            function() {
-
-                heart.remove();
-
-            },
-            1600
-        );
+        setTimeout(() => {
+            heart.remove();
+        }, 1300);
 
     }
 
 }
 
 
-/* =====================================
-   INITIAL HEARTS
-===================================== */
+/* =========================
+   CONFETTI
+========================= */
 
-setTimeout(
-    function() {
+function createConfetti() {
 
-        createHearts();
+    for (let i = 0; i < 100; i++) {
 
-    },
-    1000
-);
+        const piece = document.createElement("div");
+
+        piece.className = "confetti";
+
+        piece.style.left =
+            Math.random() * 100 + "vw";
+
+        piece.style.background =
+            [
+                "#ff4f91",
+                "#ffd166",
+                "#8ecae6",
+                "#c77dff",
+                "#ff9f1c",
+                "#ffffff"
+            ][Math.floor(Math.random() * 6)];
+
+        piece.style.animationDelay =
+            Math.random() * 1.5 + "s";
+
+        piece.style.transform =
+            `rotate(${Math.random() * 360}deg)`;
+
+        document.body.appendChild(piece);
+
+        setTimeout(() => {
+            piece.remove();
+        }, 4500);
+
+    }
+
+}
+
+
+/* =========================
+   SONG EVENTS
+========================= */
+
+music.addEventListener("ended", function() {
+
+    musicPlaying = false;
+
+    musicButton.textContent = "🎵";
+
+});
+
+magnolia.addEventListener("ended", function() {
+
+    musicPlaying = false;
+
+    musicButton.textContent = "🎵";
+
+});
 
 </script>
 
