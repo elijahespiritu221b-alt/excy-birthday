@@ -1973,6 +1973,137 @@ input:focus-visible {
         width: 290px;
     }
 }
+
+/* =========================================================
+   FINAL VIDEO GIFT
+   ========================================================= */
+.final-gift-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.final-gift-intro {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.final-gift-icon {
+    font-size: 4.5rem;
+    display: inline-block;
+    animation: finalGiftFloat 2s ease-in-out infinite;
+}
+
+@keyframes finalGiftFloat {
+    0%, 100% { transform: translateY(0) rotate(-2deg); }
+    50% { transform: translateY(-12px) rotate(2deg); }
+}
+
+.final-gift-subtitle {
+    color: #9b5575;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin: 12px auto 24px;
+}
+
+.final-video-wrap {
+    width: min(900px, 100%);
+    margin: 0 auto;
+    padding: 12px;
+    border-radius: 28px;
+    background: linear-gradient(135deg, #ffd1e2, #fff7fa, #f8bfd6);
+    box-shadow: 0 18px 45px rgba(157, 63, 103, .16);
+}
+
+.final-video {
+    display: block;
+    width: 100%;
+    max-height: 70vh;
+    border-radius: 20px;
+    background: #1e1420;
+}
+
+.final-video-note {
+    text-align: center;
+    color: #9b5575;
+    margin-top: 14px;
+    font-size: .95rem;
+}
+
+.final-ending {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.final-ending-hearts {
+    font-size: 2.4rem;
+    letter-spacing: .3rem;
+    animation: endingPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes endingPulse {
+    0%, 100% { transform: scale(1); opacity: .9; }
+    50% { transform: scale(1.08); opacity: 1; }
+}
+
+.final-ending-title {
+    font-size: clamp(2.2rem, 6vw, 4.2rem);
+    line-height: 1.1;
+    margin: 18px 0 12px;
+}
+
+.final-ending-text {
+    color: #8d506d;
+    font-size: 1.08rem;
+    line-height: 1.8;
+}
+
+.final-video-stage,
+.final-ending-stage {
+    display: none;
+}
+
+.final-video-stage.show,
+.final-ending-stage.show {
+    display: block;
+    animation: finalFadeIn .9s ease both;
+}
+
+@keyframes finalFadeIn {
+    from { opacity: 0; transform: translateY(20px) scale(.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.final-hearts-burst {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.final-floating-heart {
+    position: absolute;
+    bottom: -30px;
+    animation: finalHeartRise 4.5s linear forwards;
+    opacity: 0;
+}
+
+@keyframes finalHeartRise {
+    0% { transform: translateY(0) scale(.6) rotate(0deg); opacity: 0; }
+    12% { opacity: 1; }
+    100% { transform: translateY(-560px) scale(1.15) rotate(18deg); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .final-gift-icon,
+    .final-ending-hearts,
+    .final-video-stage.show,
+    .final-ending-stage.show {
+        animation: none;
+    }
+}
+
 </style>
 </head>
 
@@ -2405,38 +2536,85 @@ input:focus-visible {
 <!-- =======================================================
      FINAL
      ======================================================= -->
-<section id="final">
-    <div class="final-content">
+<section id="final" class="final-gift-section">
+    <div class="final-hearts-burst" id="finalHeartsBurst" aria-hidden="true"></div>
 
-        <div class="final-heart"></div>
+    <div class="final-content final-gift-intro" id="finalGiftIntro">
+        <div class="final-gift-icon">🎁</div>
 
         <h2 class="final-title">
-            Happy Birthday,
+            One Last Surprise,
             Mah Girl. ❤️
         </h2>
 
-        <p class="final-text">
-            I hope you felt even a little bit of the love that went
-            into making this for you. Keep smiling, keep growing,
-            keep chasing the things that make you happy, and keep
-            believing in yourself.
-            <br><br>
-            And whenever life gets a little difficult,
-            remember that there is someone out here who will always
-            be proud of you.
+        <p class="final-gift-subtitle">
+            You thought that was everything? Not yet.
+            There is one more little surprise waiting for you.
         </p>
 
-        <p class="final-signature">
-            Enjoy your day, Excy. 🌷
-        </p>
-
-        <button
-            class="secondary-btn replay-btn"
-            type="button"
-            id="replayButton"
-        >
-            💗 Replay the Surprise
+        <button class="primary-btn" type="button" id="openFinalGiftButton">
+            💗 Open Your Final Gift
         </button>
+    </div>
+
+    <div class="final-video-stage" id="finalVideoStage">
+        <div class="final-content">
+            <h2 class="final-title">
+                A Little Message From Your Friends ❤️
+            </h2>
+
+            <p class="final-gift-subtitle">
+                They wanted to wish you a very happy birthday too. 🥹
+            </p>
+
+            <div class="final-video-wrap">
+                <video
+                    id="friendsBirthdayVideo"
+                    class="final-video"
+                    controls
+                    playsinline
+                    preload="metadata"
+                >
+                    <source src="friends.mp4" type="video/mp4">
+                    Your browser does not support the video element.
+                </video>
+            </div>
+
+            <p class="final-video-note">
+                Turn your volume up. ❤️
+            </p>
+        </div>
+    </div>
+
+    <div class="final-ending-stage" id="finalEndingStage">
+        <div class="final-ending">
+            <div class="final-ending-hearts">❤️ 💕 ❤️</div>
+
+            <h2 class="final-ending-title">
+                Happy Birthday, Mah Girl. ❤️
+            </h2>
+
+            <p class="final-ending-text">
+                And that's it... ❤️<br><br>
+                I hope you always remember how loved you are.
+                Keep smiling, keep growing, and keep being the
+                amazing person you are.
+                <br><br>
+                Happy birthday, Excy. 🥹💗
+            </p>
+
+            <p class="final-signature">
+                From someone who will always be proud of you. ❤️
+            </p>
+
+            <button
+                class="secondary-btn replay-btn"
+                type="button"
+                id="replayButton"
+            >
+                💗 Replay the Surprise
+            </button>
+        </div>
     </div>
 </section>
 
@@ -3198,6 +3376,83 @@ replayButton.addEventListener(
         );
     }
 );
+
+/* =========================================================
+   FINAL GIFT: ANIMATION -> FRIENDS VIDEO -> ENDING
+   ========================================================= */
+const openFinalGiftButton = document.getElementById("openFinalGiftButton");
+const finalGiftIntro = document.getElementById("finalGiftIntro");
+const finalVideoStage = document.getElementById("finalVideoStage");
+const finalEndingStage = document.getElementById("finalEndingStage");
+const friendsBirthdayVideo = document.getElementById("friendsBirthdayVideo");
+const finalHeartsBurst = document.getElementById("finalHeartsBurst");
+
+function createFinalHearts() {
+    if (!finalHeartsBurst) return;
+
+    finalHeartsBurst.innerHTML = "";
+
+    const hearts = ["❤️", "💕", "💗", "💖", "✨", "🌸"];
+
+    for (let i = 0; i < 22; i++) {
+        const heart = document.createElement("span");
+        heart.className = "final-floating-heart";
+        heart.textContent = hearts[i % hearts.length];
+        heart.style.left = `${Math.random() * 100}%`;
+        heart.style.animationDelay = `${Math.random() * 1.8}s`;
+        heart.style.fontSize = `${18 + Math.random() * 20}px`;
+        finalHeartsBurst.appendChild(heart);
+    }
+}
+
+function showFinalEnding() {
+    if (friendsBirthdayVideo) {
+        friendsBirthdayVideo.pause();
+    }
+
+    if (finalVideoStage) {
+        finalVideoStage.classList.remove("show");
+    }
+
+    if (finalEndingStage) {
+        finalEndingStage.classList.add("show");
+    }
+
+    createFinalHearts();
+}
+
+if (openFinalGiftButton) {
+    openFinalGiftButton.addEventListener("click", function () {
+        if (finalGiftIntro) {
+            finalGiftIntro.style.display = "none";
+        }
+
+        if (finalVideoStage) {
+            finalVideoStage.classList.add("show");
+        }
+
+        createFinalHearts();
+
+        /*
+         * The button click is a direct user interaction, so we attempt
+         * to start the friends' video here. If the browser blocks it,
+         * the normal video controls remain available.
+         */
+        if (friendsBirthdayVideo) {
+            const playPromise = friendsBirthdayVideo.play();
+
+            if (playPromise && typeof playPromise.catch === "function") {
+                playPromise.catch(function () {
+                    /* User can press Play in the native video controls. */
+                });
+            }
+        }
+    });
+}
+
+if (friendsBirthdayVideo) {
+    friendsBirthdayVideo.addEventListener("ended", showFinalEnding);
+}
 
 /* =========================================================
    14. KEYBOARD SUPPORT
