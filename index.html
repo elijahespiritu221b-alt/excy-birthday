@@ -1,17 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Happy Birthday, Mah Girl ❤️</title>
+<title>Happy Birthday, Excy ❤️</title>
 
 <style>
-
-/* =====================================================
-   RESET
-===================================================== */
 
 * {
     box-sizing: border-box;
@@ -24,89 +19,88 @@ html {
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    color: #5d2943;
+    font-family: "Segoe UI", Arial, sans-serif;
     background:
-        linear-gradient(
-            135deg,
-            #ffd9e8 0%,
-            #ffc5dc 45%,
-            #ead5ff 100%
-        );
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,.35), transparent 25%),
+        radial-gradient(circle at 80% 10%, rgba(255,182,213,.35), transparent 25%),
+        linear-gradient(135deg, #ffd6e7, #ffc1dc, #e7c6ff);
+    color: #5c2141;
     overflow-x: hidden;
 }
 
+/* =========================
+   GENERAL
+========================= */
+
 section {
     min-height: 100vh;
-    width: 100%;
     padding: 70px 20px;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 .container {
     width: 100%;
     max-width: 850px;
-    margin: auto;
     text-align: center;
 }
 
 h1 {
-    color: #c52e68;
     font-size: clamp(2.5rem, 8vw, 5rem);
-    line-height: 1.1;
+    color: #c72c65;
+    text-shadow: 0 5px 20px rgba(199,44,101,.25);
 }
 
 h2 {
-    color: #b52c60;
-    font-size: clamp(2rem, 6vw, 3.2rem);
-    margin-bottom: 18px;
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    color: #b72c60;
+    margin-bottom: 20px;
 }
 
 p {
-    line-height: 1.7;
+    line-height: 1.8;
 }
 
 button {
     border: none;
-    padding: 15px 28px;
-    border-radius: 50px;
-    background: linear-gradient(135deg, #ff5797, #c72b67);
-    color: white;
+    cursor: pointer;
     font-size: 1rem;
     font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 10px 25px rgba(190, 40, 100, .25);
-    transition: transform .25s ease;
+    color: white;
+    background: linear-gradient(135deg, #ff4f91, #c82d68);
+    padding: 15px 28px;
+    border-radius: 50px;
+    box-shadow: 0 10px 25px rgba(200,45,104,.3);
+    transition: .3s;
 }
 
 button:hover {
-    transform: translateY(-3px);
+    transform: translateY(-3px) scale(1.03);
 }
 
 button:active {
     transform: scale(.97);
 }
 
-
-/* =====================================================
+/* =========================
    FLOATING HEARTS
-===================================================== */
+========================= */
 
 .heart {
     position: fixed;
-    left: 0;
     bottom: -40px;
-    z-index: 9999;
+    font-size: 25px;
     pointer-events: none;
-    animation: heartFloat 6s linear forwards;
+    animation: floatHeart 6s linear forwards;
+    z-index: 999;
 }
 
-@keyframes heartFloat {
+@keyframes floatHeart {
 
     0% {
-        transform: translateY(0) rotate(0deg);
+        transform: translateY(0) scale(.7) rotate(0deg);
         opacity: 0;
     }
 
@@ -115,465 +109,383 @@ button:active {
     }
 
     100% {
-        transform: translateY(-110vh) rotate(360deg);
+        transform: translateY(-110vh) scale(1.4) rotate(360deg);
         opacity: 0;
     }
 }
 
-
-/* =====================================================
+/* =========================
    OPENING
-===================================================== */
+========================= */
 
 #opening {
     text-align: center;
 }
 
-.open-subtitle {
-    margin: 20px auto 35px;
-    max-width: 550px;
+.subtitle {
+    margin: 15px 0 35px;
     font-size: 1.15rem;
+    color: #7b3155;
 }
 
+.open-btn {
+    font-size: 1.1rem;
+}
 
-/* =====================================================
+/* =========================
    ENVELOPE
-===================================================== */
+========================= */
 
-#letter-section {
-    background: rgba(255,255,255,.08);
-}
-
-.envelope-area {
-    width: 100%;
+.envelope-wrapper {
+    margin-top: 30px;
     display: flex;
     justify-content: center;
-    margin-top: 35px;
 }
 
 .envelope {
+    width: min(90vw, 500px);
+    height: 310px;
     position: relative;
-    width: min(500px, 90vw);
-    height: 300px;
     cursor: pointer;
+    perspective: 1000px;
 }
-
-/* back */
 
 .envelope-back {
     position: absolute;
     inset: 0;
-    background: #f184b2;
+    background: #f48bb5;
     border-radius: 15px;
-    box-shadow: 0 20px 40px rgba(90,30,60,.2);
+    box-shadow: 0 20px 50px rgba(120,40,80,.25);
 }
-
-/* letter */
-
-.letter {
-    position: absolute;
-    z-index: 5;
-
-    left: 6%;
-    top: 7%;
-
-    width: 88%;
-    height: 84%;
-
-    padding: 25px;
-
-    background: white;
-    border-radius: 10px;
-
-    overflow-y: auto;
-
-    text-align: left;
-
-    box-shadow: 0 8px 20px rgba(0,0,0,.12);
-
-    transition: transform 1s ease;
-}
-
-.letter h3 {
-    text-align: center;
-    color: #c52e68;
-    margin-bottom: 18px;
-}
-
-.letter-text {
-    white-space: pre-line;
-    line-height: 1.75;
-    font-size: .95rem;
-}
-
-/* front */
 
 .envelope-front {
     position: absolute;
-    z-index: 7;
-
-    left: 0;
     bottom: 0;
-
     width: 100%;
-    height: 68%;
-
-    background: #ffadd0;
-
-    clip-path:
-        polygon(
-            0 0,
-            50% 55%,
-            100% 0,
-            100% 100%,
-            0 100%
-        );
-
+    height: 70%;
+    background: #ffafd0;
+    clip-path: polygon(0 0, 50% 55%, 100% 0, 100% 100%, 0 100%);
     border-radius: 0 0 15px 15px;
+    z-index: 3;
 }
-
-/* flap */
 
 .envelope-flap {
     position: absolute;
-    z-index: 8;
-
     top: 0;
-    left: 0;
-
     width: 100%;
-    height: 63%;
-
-    background: #ff8cba;
-
-    clip-path:
-        polygon(
-            0 0,
-            100% 0,
-            50% 75%
-        );
-
+    height: 62%;
+    background: #ff8fbd;
+    clip-path: polygon(0 0, 100% 0, 50% 75%);
     transform-origin: top;
-    transition: transform 1s ease;
+    transition: 1s;
+    z-index: 4;
 }
-
-/* open */
 
 .envelope.open .envelope-flap {
     transform: rotateX(180deg);
 }
 
-.envelope.open .letter {
-    transform: translateY(-185px);
+.envelope-letter {
+    position: absolute;
+    background: white;
+    width: 88%;
+    height: 85%;
+    left: 6%;
+    top: 8%;
+    padding: 30px;
+    overflow-y: auto;
+    border-radius: 10px;
+    z-index: 2;
+    transition: 1s;
+    text-align: left;
+    box-shadow: 0 10px 30px rgba(0,0,0,.15);
 }
 
+.envelope.open .envelope-letter {
+    transform: translateY(-210px);
+}
 
-/* =====================================================
+.letter-title {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #c72c65;
+    margin-bottom: 20px;
+}
+
+.letter-text {
+    white-space: pre-line;
+    font-size: .98rem;
+}
+
+/* =========================
    MUSIC
-===================================================== */
+========================= */
 
-.music-list {
-    margin-top: 35px;
+.music-box {
+    margin-top: 40px;
     display: grid;
     gap: 20px;
 }
 
 .music-card {
     background: rgba(255,255,255,.65);
+    backdrop-filter: blur(10px);
+    padding: 20px;
     border-radius: 20px;
-    padding: 22px;
-    box-shadow: 0 10px 25px rgba(90,30,60,.1);
+    box-shadow: 0 10px 30px rgba(100,30,70,.12);
 }
 
 .music-card h3 {
-    color: #b52c60;
-    margin-bottom: 15px;
+    color: #b72c60;
+    margin-bottom: 12px;
 }
 
 audio {
     width: 100%;
 }
 
-
-/* =====================================================
+/* =========================
    CAKE SECTION
-===================================================== */
+========================= */
 
-.cake-section-text {
-    margin-bottom: 10px;
-}
-
-
-/* Cake stage */
-
-.cake-stage {
+.cake-area {
     position: relative;
-
-    width: min(360px, 92vw);
+    width: 360px;
+    max-width: 95vw;
     height: 360px;
-
-    margin: 25px auto 10px;
+    margin: 40px auto 20px;
 }
 
-
-/* plate */
+/* Plate */
 
 .plate {
     position: absolute;
-
-    left: 5%;
-    bottom: 35px;
-
-    width: 90%;
-    height: 32px;
-
-    background: #f9f9f9;
+    width: 330px;
+    height: 35px;
+    left: 15px;
+    bottom: 20px;
     border-radius: 50%;
-
-    box-shadow: 0 8px 15px rgba(60,30,50,.2);
+    background: linear-gradient(#fff,#f2d9e7);
+    box-shadow: 0 12px 20px rgba(100,30,70,.2);
 }
 
-
-/* cake */
+/* Cake */
 
 .cake {
     position: absolute;
-
-    left: 50%;
-    bottom: 58px;
-
     width: 280px;
     height: 190px;
-
-    transform: translateX(-50%);
+    left: 40px;
+    top: 115px;
+    z-index: 5;
 }
 
-
-/* cake body */
+/* Bottom cake body */
 
 .cake-body {
     position: absolute;
-
     left: 0;
-    bottom: 0;
-
-    width: 100%;
+    bottom: 20px;
+    width: 280px;
     height: 125px;
-
     background:
         linear-gradient(
             90deg,
-            #66833d,
-            #91ae58,
-            #a9c871,
-            #86a34e,
-            #627b3b
+            #f68eb6,
+            #ffb2d0 35%,
+            #f78eb8 70%,
+            #df5f92
         );
-
-    border-radius: 8px 8px 25px 25px;
-
+    border-radius: 0 0 28px 28px;
     box-shadow:
-        inset 0 -12px rgba(50,70,25,.15),
-        0 12px 20px rgba(50,70,30,.2);
+        inset 0 -12px 0 rgba(180,45,95,.15),
+        0 15px 25px rgba(120,40,80,.2);
 }
 
-
-/* cake top */
+/* Cake top */
 
 .cake-top {
     position: absolute;
-
     left: 0;
     top: 40px;
-
-    width: 100%;
+    width: 280px;
     height: 75px;
-
     border-radius: 50%;
+    background:
+        radial-gradient(
+            ellipse at center,
+            #fff5fa 0%,
+            #ffd9e8 65%,
+            #f58ab4 100%
+        );
+    box-shadow:
+        inset 0 -7px 0 rgba(200,60,110,.12),
+        0 5px 10px rgba(120,40,80,.15);
+    z-index: 3;
+}
+
+/* Cream edge */
+
+.cream {
+    position: absolute;
+    width: 280px;
+    height: 35px;
+    left: 0;
+    top: 87px;
+    background: #fff4fa;
+    border-radius: 50%;
+    z-index: 6;
+    box-shadow: 0 5px 10px rgba(120,40,80,.1);
+}
+
+/* =========================
+   REAL CSS STRAWBERRIES
+========================= */
+
+.strawberry {
+    position: absolute;
+    width: 32px;
+    height: 40px;
 
     background:
         radial-gradient(
-            ellipse,
-            #d0e69c,
-            #a9c875 55%,
-            #789448
-        );
-
-    z-index: 2;
-}
-
-
-/* cream */
-
-.cake-cream {
-    position: absolute;
-
-    left: 0;
-    top: 82px;
-
-    width: 100%;
-    height: 45px;
-
-    background: #fff7fa;
-
-    border-radius: 50%;
-
-    z-index: 4;
-
-    box-shadow: 0 4px 8px rgba(60,30,50,.1);
-}
-
-
-/* cream drips */
-
-.cake-cream span {
-    position: absolute;
-
-    top: 18px;
-
-    width: 28px;
-    height: 28px;
-
-    background: #fff7fa;
-
-    border-radius: 0 0 15px 15px;
-}
-
-.drip1 {
-    left: 35px;
-}
-
-.drip2 {
-    left: 120px;
-}
-
-.drip3 {
-    right: 40px;
-}
-
-
-/* =====================================================
-   STRAWBERRIES
-===================================================== */
-
-.berry {
-    position: absolute;
-
-    width: 34px;
-    height: 42px;
-
-    background:
+            circle at 30% 25%,
+            rgba(255,255,255,.45),
+            transparent 20%
+        ),
         linear-gradient(
             135deg,
-            #ff7395,
-            #ed315f,
-            #bf1d49
+            #ff668d,
+            #ef315f 60%,
+            #c91f4d
         );
 
-    border-radius: 55% 55% 65% 65%;
+    border-radius: 55% 55% 62% 62%;
+    z-index: 12;
 
-    z-index: 6;
+    transform: rotate(5deg);
 
     box-shadow:
-        inset -5px -6px 8px rgba(100,20,40,.2);
+        inset -5px -7px 10px rgba(130,20,50,.2),
+        0 5px 8px rgba(120,30,60,.2);
 }
 
+/* strawberry seeds */
 
-/* seeds */
-
-.berry::before {
+.strawberry::before {
     content: "";
-
     position: absolute;
-
     width: 4px;
-    height: 6px;
-
+    height: 7px;
     border-radius: 50%;
-
-    background: #ffe8a1;
+    background: #ffe9a6;
 
     left: 8px;
-    top: 9px;
+    top: 10px;
 
     box-shadow:
-        12px 3px #ffe8a1,
-        5px 13px #ffe8a1,
-        17px 15px #ffe8a1,
-        10px 25px #ffe8a1,
-        21px 26px #ffe8a1;
+        12px 2px #ffe9a6,
+        5px 11px #ffe9a6,
+        17px 13px #ffe9a6,
+        9px 22px #ffe9a6,
+        20px 24px #ffe9a6;
 }
 
+/* strawberry leaves */
 
-/* leaves */
-
-.berry::after {
+.strawberry::after {
     content: "";
-
     position: absolute;
-
-    left: 5px;
     top: -9px;
-
-    width: 25px;
+    left: 5px;
+    width: 23px;
     height: 15px;
 
-    background: #3c8e48;
+    background: #3e9b4c;
 
-    clip-path:
-        polygon(
-            50% 100%,
-            0 5%,
-            35% 35%,
-            50% 0,
-            65% 35%,
-            100% 5%
-        );
+    clip-path: polygon(
+        50% 100%,
+        0% 10%,
+        35% 35%,
+        50% 0%,
+        65% 35%,
+        100% 10%
+    );
+
+    filter: drop-shadow(0 2px 1px rgba(0,0,0,.15));
 }
 
-.berry1 {
-    left: 25px;
-    top: 42px;
-    transform: rotate(-12deg);
+/* Strawberry positions */
+
+.strawberry1 {
+    left: 28px;
+    top: 25px;
+    transform: rotate(-12deg) scale(.9);
 }
 
-.berry2 {
-    left: 50%;
-    top: 28px;
-    transform: translateX(-50%) scale(1.05);
+.strawberry2 {
+    left: 122px;
+    top: 12px;
+    transform: rotate(3deg) scale(1.05);
 }
 
-.berry3 {
-    right: 25px;
-    top: 42px;
-    transform: rotate(12deg);
+.strawberry3 {
+    right: 28px;
+    top: 27px;
+    transform: rotate(12deg) scale(.9);
 }
 
+/* Small cream dots */
 
-/* =====================================================
+.cream-dot {
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: #fff;
+    z-index: 11;
+}
+
+.dot1 {
+    left: 76px;
+    top: 75px;
+}
+
+.dot2 {
+    left: 101px;
+    top: 94px;
+}
+
+.dot3 {
+    right: 78px;
+    top: 76px;
+}
+
+.dot4 {
+    right: 103px;
+    top: 95px;
+}
+
+/* =========================
    CANDLES
-===================================================== */
+========================= */
 
 .candle {
     position: absolute;
-
-    top: -5px;
-
     width: 22px;
-    height: 62px;
-
+    height: 65px;
+    top: -25px;
+    border-radius: 8px;
     background:
         repeating-linear-gradient(
             -45deg,
             #fff,
             #fff 8px,
-            #ff6195 8px,
-            #ff6195 14px
+            #ff5f91 8px,
+            #ff5f91 14px
         );
-
-    border-radius: 7px;
-
-    z-index: 10;
+    z-index: 20;
+    box-shadow: 0 4px 8px rgba(100,20,50,.2);
 }
 
 .candle1 {
@@ -585,601 +497,172 @@ audio {
 }
 
 .candle3 {
-    right: 85px;
+    left: 173px;
 }
-
-
-/* flame */
 
 .flame {
     position: absolute;
+    width: 20px;
+    height: 30px;
+    top: -30px;
+    left: 1px;
 
-    left: 2px;
-    top: -27px;
-
-    width: 18px;
-    height: 27px;
-
-    background:
-        linear-gradient(
-            #fff36c,
-            #ff9c27,
-            #ff4b2e
-        );
+    background: linear-gradient(
+        #fff36d,
+        #ff9f2f,
+        #ff4b2b
+    );
 
     border-radius: 50% 50% 50% 50%;
-
     transform: rotate(45deg);
-
-    animation: flame 0.7s infinite alternate;
+    animation: flicker .6s infinite alternate;
 
     box-shadow:
-        0 0 12px #ff9c27;
+        0 0 15px #ff9f2f,
+        0 0 30px rgba(255,120,30,.6);
 }
 
-@keyframes flame {
+@keyframes flicker {
 
     from {
-        transform: rotate(43deg) scale(1);
+        transform: rotate(42deg) scale(1);
     }
 
     to {
-        transform: rotate(48deg) scale(1.1);
+        transform: rotate(48deg) scale(1.08);
     }
 }
 
-.candles-out .flame {
+.candles-blown .flame {
     display: none;
 }
 
+/* =========================
+   WISH
+========================= */
 
-/* =====================================================
-   WISH MESSAGE
-===================================================== */
-
-.hidden-wish {
+.wish-message {
     opacity: 0;
-    transform: translateY(15px);
-    transition: .7s;
-    margin-top: 15px;
+    transform: translateY(20px);
+    transition: .8s;
+    pointer-events: none;
+    margin-top: 20px;
 }
 
-.hidden-wish.visible {
+.wish-message.show {
     opacity: 1;
     transform: translateY(0);
 }
 
+.wish-message h3 {
+    color: #c72c65;
+    font-size: 1.8rem;
+}
 
-/* =====================================================
+.wish-message p {
+    margin-top: 8px;
+}
+
+/* =========================
    11:11
-===================================================== */
+========================= */
 
 .clock {
     font-size: clamp(4rem, 15vw, 8rem);
     font-weight: bold;
-    color: #c52e68;
-}
-
-.wish-box {
-    margin-top: 30px;
+    color: #c72c65;
+    text-shadow: 0 10px 25px rgba(199,44,101,.2);
 }
 
 .wish-input {
-    display: block;
-
-    width: min(600px, 90%);
-
     margin: 25px auto;
-
+    width: min(600px, 90%);
     padding: 16px 20px;
-
-    border: 2px solid #ef91b5;
-
+    border: 2px solid #f08ab3;
     border-radius: 30px;
-
     outline: none;
-
-    text-align: center;
-
     font-size: 1rem;
+    text-align: center;
 }
 
-.wish-result {
-    margin-top: 20px;
-    font-weight: bold;
-    color: #c52e68;
-}
-
-
-/* =====================================================
+/* =========================
    GIFTS
-===================================================== */
+========================= */
 
-.gift-grid {
-    margin-top: 35px;
-
+.gifts {
     display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
+    margin-top: 40px;
 }
 
 .gift {
+    background: rgba(255,255,255,.7);
+    border-radius: 25px;
+    padding: 30px 15px;
     min-height: 190px;
-
-    padding: 25px 15px;
-
-    border-radius: 22px;
-
-    background:
-        rgba(255,255,255,.7);
-
-    box-shadow:
-        0 10px 25px rgba(90,30,60,.1);
-
     display: flex;
-
     flex-direction: column;
-
     justify-content: center;
-
     align-items: center;
-
-    cursor: pointer;
-
-    transition: .3s;
+    box-shadow: 0 12px 30px rgba(100,30,70,.12);
+    transition: .4s;
 }
 
 .gift:hover {
-    transform: translateY(-6px);
+    transform: translateY(-8px) rotate(1deg);
 }
 
 .gift-icon {
     font-size: 4rem;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .gift-message {
     display: none;
     margin-top: 12px;
+    color: #7a2b50;
 }
 
-.gift.open .gift-message {
+.gift.opened .gift-message {
     display: block;
 }
 
-
-/* =====================================================
-   BOUQUET
-===================================================== */
-
-.bouquet-area {
-    margin-top: 30px;
-}
-
-.bouquet {
-    position: relative;
-
-    width: min(420px, 95vw);
-    height: 430px;
-
-    margin: 0 auto;
-}
-
-
-/* stems */
-
-.bouquet-stem {
-    position: absolute;
-
-    width: 7px;
-    height: 210px;
-
-    left: 50%;
-    bottom: 80px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #346c39,
-            #6ca356,
-            #346c39
-        );
-
-    border-radius: 10px;
-
-    transform-origin: bottom;
-
-    z-index: 1;
-}
-
-.stem-a {
-    transform: translateX(-50%) rotate(-27deg);
-}
-
-.stem-b {
-    transform: translateX(-50%) rotate(-13deg);
-}
-
-.stem-c {
-    transform: translateX(-50%) rotate(0deg);
-}
-
-.stem-d {
-    transform: translateX(-50%) rotate(13deg);
-}
-
-.stem-e {
-    transform: translateX(-50%) rotate(27deg);
-}
-
-
-/* leaves */
-
-.bouquet-leaf {
-    position: absolute;
-
-    width: 55px;
-    height: 28px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #78aa60,
-            #326b38
-        );
-
-    border-radius:
-        100% 0 100% 0;
-
-    z-index: 3;
-}
-
-.bleaf1 {
-    left: 75px;
-    bottom: 155px;
-    transform: rotate(-35deg);
-}
-
-.bleaf2 {
-    right: 75px;
-    bottom: 160px;
-    transform: rotate(35deg) scaleX(-1);
-}
-
-.bleaf3 {
-    left: 105px;
-    bottom: 115px;
-    transform: rotate(-20deg);
-}
-
-.bleaf4 {
-    right: 105px;
-    bottom: 120px;
-    transform: rotate(20deg) scaleX(-1);
-}
-
-
-/* =====================================================
-   ROSES
-===================================================== */
-
-.rose {
-    position: absolute;
-
-    width: 95px;
-    height: 95px;
-
-    border-radius: 50%;
-
-    z-index: 5;
-}
-
-
-/* outer rose */
-
-.rose::before {
-    content: "";
-
-    position: absolute;
-
-    inset: 7px;
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle at 35% 30%,
-            #ffd4e2 0 12%,
-            transparent 13%
-        ),
-        radial-gradient(
-            circle,
-            #ef7197 0 32%,
-            #d83d70 33% 60%,
-            #b92759 61%
-        );
-
-    box-shadow:
-        inset 7px 7px 12px rgba(255,255,255,.2),
-        inset -7px -7px 12px rgba(100,20,50,.2);
-}
-
-
-/* inner petals */
-
-.rose::after {
-    content: "";
-
-    position: absolute;
-
-    left: 25px;
-    top: 24px;
-
-    width: 45px;
-    height: 45px;
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle at 35% 30%,
-            #ffdce7,
-            #df4c7b 55%,
-            #a91f50
-        );
-
-    box-shadow:
-        8px 4px 0 rgba(255,150,180,.35),
-        -6px 5px 0 rgba(180,40,90,.35);
-}
-
-
-/* colors */
-
-.rose-dark::before {
-    background:
-        radial-gradient(
-            circle at 35% 30%,
-            #ffabc6 0 12%,
-            transparent 13%
-        ),
-        radial-gradient(
-            circle,
-            #e85a87 0 32%,
-            #bd2458 33% 60%,
-            #8d173f 61%
-        );
-}
-
-.rose-light::before {
-    background:
-        radial-gradient(
-            circle at 35% 30%,
-            #fff1f6 0 12%,
-            transparent 13%
-        ),
-        radial-gradient(
-            circle,
-            #ffb5cb 0 32%,
-            #ef7198 33% 60%,
-            #d04b76 61%
-        );
-}
-
-
-/* positions */
-
-.rose1 {
-    left: 28px;
-    top: 48px;
-    transform: scale(.85);
-}
-
-.rose2 {
-    left: 50%;
-    top: 12px;
-    transform: translateX(-50%) scale(1.05);
-}
-
-.rose3 {
-    right: 28px;
-    top: 48px;
-    transform: scale(.85);
-}
-
-.rose4 {
-    left: 92px;
-    top: 100px;
-    transform: scale(.68);
-}
-
-.rose5 {
-    right: 92px;
-    top: 100px;
-    transform: scale(.68);
-}
-
-
-/* =====================================================
-   BOUQUET WRAPPER
-===================================================== */
-
-.bouquet-wrap {
-    position: absolute;
-
-    left: 50%;
-    bottom: 20px;
-
-    width: 280px;
-    height: 175px;
-
-    transform: translateX(-50%);
-
-    background:
-        linear-gradient(
-            120deg,
-            #f58caf,
-            #fff0f5 50%,
-            #dc6791
-        );
-
-    clip-path:
-        polygon(
-            8% 0,
-            92% 0,
-            100% 100%,
-            50% 80%,
-            0 100%
-        );
-
-    z-index: 8;
-
-    box-shadow:
-        0 10px 20px rgba(90,30,60,.15);
-}
-
-
-/* ribbon */
-
-.ribbon {
-    position: absolute;
-
-    left: 50%;
-    bottom: 70px;
-
-    width: 85px;
-    height: 55px;
-
-    transform: translateX(-50%);
-
-    z-index: 10;
-}
-
-.ribbon-center {
-    position: absolute;
-
-    left: 32px;
-    top: 15px;
-
-    width: 22px;
-    height: 25px;
-
-    background: #c92e66;
-    border-radius: 6px;
-
-    z-index: 3;
-}
-
-.ribbon-left,
-.ribbon-right {
-    position: absolute;
-
-    top: 8px;
-
-    width: 45px;
-    height: 40px;
-
-    background: #e85a8b;
-
-    border-radius: 50%;
-}
-
-.ribbon-left {
-    left: 0;
-    transform: rotate(-25deg);
-}
-
-.ribbon-right {
-    right: 0;
-    transform: rotate(25deg);
-}
-
-
-/* bouquet sparkles */
-
-.sparkle {
-    position: absolute;
-    color: white;
-    font-size: 24px;
-    z-index: 20;
-    animation: sparkle 1.8s infinite alternate;
-}
-
-.sparkle1 {
-    left: 10px;
-    top: 90px;
-}
-
-.sparkle2 {
-    right: 10px;
-    top: 110px;
-}
-
-.sparkle3 {
-    left: 45px;
-    top: 190px;
-}
-
-.sparkle4 {
-    right: 45px;
-    top: 200px;
-}
-
-@keyframes sparkle {
-
-    from {
-        opacity: .3;
-        transform: scale(.7);
-    }
-
-    to {
-        opacity: 1;
-        transform: scale(1.2);
-    }
-}
-
-
-/* =====================================================
+/* =========================
    FINAL
-===================================================== */
+========================= */
 
 #final {
     text-align: center;
 }
 
 .final-heart {
-    font-size: 6rem;
-
-    animation:
-        heartbeat 1.2s infinite;
+    font-size: 7rem;
+    animation: heartbeat 1.2s infinite;
 }
 
 @keyframes heartbeat {
 
-    0%, 100% {
+    0%,100% {
         transform: scale(1);
     }
 
     50% {
-        transform: scale(1.12);
+        transform: scale(1.15);
     }
 }
 
 .final-message {
+    font-size: 1.2rem;
     max-width: 650px;
     margin: 20px auto 30px;
-    font-size: 1.15rem;
 }
 
-
-/* =====================================================
+/* =========================
    MOBILE
-===================================================== */
+========================= */
 
-@media (max-width: 600px) {
+@media(max-width: 650px) {
 
     section {
         padding: 55px 15px;
@@ -1189,70 +672,55 @@ audio {
         height: 260px;
     }
 
-    .letter {
-        padding: 18px;
-        font-size: .88rem;
+    .envelope-letter {
+        padding: 20px;
+        font-size: .9rem;
     }
 
-    .envelope.open .letter {
-        transform: translateY(-160px);
+    .envelope.open .envelope-letter {
+        transform: translateY(-175px);
     }
 
-    .cake {
-        transform: translateX(-50%) scale(.85);
-        transform-origin: bottom center;
+    .cake-area {
+        transform: scale(.88);
+        transform-origin: center;
+        margin-top: 10px;
+        margin-bottom: -20px;
     }
 
-    .gift-grid {
+    .gifts {
         grid-template-columns: 1fr;
     }
 
-    .bouquet {
-        transform: scale(.82);
-        transform-origin: top center;
-        margin-bottom: -60px;
+    .gift {
+        min-height: 160px;
     }
 
-}
-
-@media (max-width: 390px) {
-
-    .cake {
-        transform: translateX(-50%) scale(.75);
+    .music-card {
+        padding: 16px;
     }
-
-    .bouquet {
-        transform: scale(.70);
-        margin-bottom: -110px;
-    }
-
 }
 
 </style>
-
 </head>
-
 
 <body>
 
-
-<!-- =====================================================
-     1. OPENING
-===================================================== -->
+<!-- =========================
+     OPENING
+========================= -->
 
 <section id="opening">
 
     <div class="container">
 
-        <h1>
-            Happy Birthday, Mah Girl ❤️
-        </h1>
+        <h1>Happy Birthday, Excy ❤️</h1>
 
-        <p class="open-subtitle">
-            I made something special for you, mah girl. 🩷
+        <p class="subtitle">
+            I made something special for you.
         </p>
 
-        <button onclick="openSurprise()">
+        <button class="open-btn" onclick="openSurprise()">
             💌 Open Your Surprise
         </button>
 
@@ -1261,38 +729,27 @@ audio {
 </section>
 
 
-<!-- =====================================================
-     2. LETTER
-===================================================== -->
+<!-- =========================
+     LETTER
+========================= -->
 
 <section id="letter-section">
 
     <div class="container">
 
-        <h2>
-            💌 A Letter For Mah Girl
-        </h2>
+        <h2>💌 A Letter For You</h2>
 
-        <p>
-            Click the envelope to open it. ❤️
-        </p>
+        <div class="envelope-wrapper">
 
-        <div class="envelope-area">
-
-            <div
-                class="envelope"
-                id="envelope"
-                onclick="openEnvelope()"
-            >
+            <div class="envelope" id="envelope" onclick="openEnvelope()">
 
                 <div class="envelope-back"></div>
 
+                <div class="envelope-letter">
 
-                <div class="letter">
-
-                    <h3>
-                        For My Mah Girl ❤️
-                    </h3>
+                    <div class="letter-title">
+                        For Excy ❤️
+                    </div>
 
                     <div class="letter-text">
 
@@ -1310,10 +767,9 @@ Happy birthday again, Excy. Enjoy kaayo today, ha. Amping always and enjoy every
 
                 </div>
 
+                <div class="envelope-flap"></div>
 
                 <div class="envelope-front"></div>
-
-                <div class="envelope-flap"></div>
 
             </div>
 
@@ -1324,24 +780,21 @@ Happy birthday again, Excy. Enjoy kaayo today, ha. Amping always and enjoy every
 </section>
 
 
-<!-- =====================================================
-     3. MUSIC
-===================================================== -->
+<!-- =========================
+     MUSIC
+========================= -->
 
 <section id="music">
 
     <div class="container">
 
-        <h2>
-            🎵 Songs For Mah Girl
-        </h2>
+        <h2>🎵 Songs For You</h2>
 
         <p>
-            Two songs for your special day. ❤️
+            A couple of songs to make your birthday a little more special.
         </p>
 
-
-        <div class="music-list">
+        <div class="music-box">
 
             <div class="music-card">
 
@@ -1350,14 +803,8 @@ Happy birthday again, Excy. Enjoy kaayo today, ha. Amping always and enjoy every
                 </h3>
 
                 <audio controls preload="metadata">
-
-                    <source
-                        src="song1.mp3"
-                        type="audio/mpeg"
-                    >
-
+                    <source src="song1.mp3" type="audio/mpeg">
                     Your browser does not support audio.
-
                 </audio>
 
             </div>
@@ -1370,14 +817,8 @@ Happy birthday again, Excy. Enjoy kaayo today, ha. Amping always and enjoy every
                 </h3>
 
                 <audio controls preload="metadata">
-
-                    <source
-                        src="song2.mp3"
-                        type="audio/mpeg"
-                    >
-
+                    <source src="song2.mp3" type="audio/mpeg">
                     Your browser does not support audio.
-
                 </audio>
 
             </div>
@@ -1389,105 +830,77 @@ Happy birthday again, Excy. Enjoy kaayo today, ha. Amping always and enjoy every
 </section>
 
 
-<!-- =====================================================
-     4. CAKE
-===================================================== -->
+<!-- =========================
+     CAKE
+========================= -->
 
 <section id="cake-section">
 
     <div class="container">
 
-        <h2>
-            🍵🍓 Matcha Strawberry Cake 🎂
-        </h2>
+        <h2>🎂 Make a Wish</h2>
 
-        <p class="cake-section-text">
-            A little matcha, strawberries,
-            and lots of love for my mah girl. 💚❤️
+        <p>
+            Before you blow the candles, make a wish. ✨
         </p>
 
-
-        <div class="cake-stage">
+        <div class="cake-area">
 
             <div class="plate"></div>
 
+            <div class="cake" id="cake">
 
-            <div
-                class="cake"
-                id="cake"
-            >
+                <!-- REAL CSS STRAWBERRIES -->
 
-                <!-- strawberries -->
+                <div class="strawberry strawberry1"></div>
+                <div class="strawberry strawberry2"></div>
+                <div class="strawberry strawberry3"></div>
 
-                <div class="berry berry1"></div>
+                <!-- CREAM DOTS -->
 
-                <div class="berry berry2"></div>
+                <div class="cream-dot dot1"></div>
+                <div class="cream-dot dot2"></div>
+                <div class="cream-dot dot3"></div>
+                <div class="cream-dot dot4"></div>
 
-                <div class="berry berry3"></div>
-
-
-                <!-- cake -->
+                <!-- CAKE -->
 
                 <div class="cake-body"></div>
 
                 <div class="cake-top"></div>
 
+                <div class="cream"></div>
 
-                <!-- cream -->
-
-                <div class="cake-cream">
-
-                    <span class="drip1"></span>
-                    <span class="drip2"></span>
-                    <span class="drip3"></span>
-
-                </div>
-
-
-                <!-- candles -->
+                <!-- CANDLES -->
 
                 <div class="candle candle1">
-
                     <div class="flame"></div>
-
                 </div>
-
 
                 <div class="candle candle2">
-
                     <div class="flame"></div>
-
                 </div>
 
-
                 <div class="candle candle3">
-
                     <div class="flame"></div>
-
                 </div>
 
             </div>
 
         </div>
 
-
         <button onclick="blowCandles()">
             🕯️ Blow the Candles
         </button>
 
-
-        <div
-            class="hidden-wish"
-            id="wishMessage"
-        >
+        <div class="wish-message" id="wishMessage">
 
             <h3>
                 ✨ Make Your 11:11 Wish ✨
             </h3>
 
             <p>
-                May every wish you make
-                come true, mah girl. ❤️
+                May every wish you make tonight find its way to you. ❤️
             </p>
 
         </div>
@@ -1497,9 +910,9 @@ Happy birthday again, Excy. Enjoy kaayo today, ha. Amping always and enjoy every
 </section>
 
 
-<!-- =====================================================
-     5. 11:11
-===================================================== -->
+<!-- =========================
+     11:11
+========================= -->
 
 <section id="wish-section">
 
@@ -1509,125 +922,92 @@ Happy birthday again, Excy. Enjoy kaayo today, ha. Amping always and enjoy every
             11:11
         </div>
 
-        <h2>
-            Make a Wish, Mah Girl ✨
-        </h2>
+        <h2>Make a Wish ✨</h2>
 
         <p>
             Close your eyes, make your wish,
             and keep it close to your heart.
         </p>
 
+        <input
+            class="wish-input"
+            id="wishInput"
+            type="text"
+            placeholder="Write your wish here..."
+        >
 
-        <div class="wish-box">
+        <br>
 
-            <input
-                class="wish-input"
-                id="wishInput"
-                type="text"
-                placeholder="Write your wish here..."
-            >
+        <button onclick="makeWish()">
+            ✨ Make My Wish
+        </button>
 
-
-            <button onclick="makeWish()">
-                ✨ Make My Wish
-            </button>
-
-
-            <div
-                class="wish-result"
-                id="wishResult"
-            ></div>
-
-        </div>
+        <div id="wishResult"></div>
 
     </div>
 
 </section>
 
 
-<!-- =====================================================
-     6. GIFTS
-===================================================== -->
+<!-- =========================
+     GIFTS
+========================= -->
 
 <section id="gifts-section">
 
     <div class="container">
 
-        <h2>
-            🎁 Three Little Gifts
-        </h2>
+        <h2>🎁 Three Little Gifts</h2>
 
         <p>
-            Open them one by one, mah girl. ❤️
+            Open them one by one. ❤️
         </p>
 
+        <div class="gifts">
 
-        <div class="gift-grid">
-
-
-            <div
-                class="gift"
-                onclick="openGift(this)"
-            >
+            <div class="gift" onclick="openGift(this)">
 
                 <div class="gift-icon">
                     🎁
                 </div>
 
-                <h3>
-                    Gift #1
-                </h3>
+                <h3>Gift #1</h3>
 
-                <p class="gift-message">
-                    You deserve to be reminded
-                    that you are loved. ❤️
-                </p>
+                <div class="gift-message">
+                    You deserve to be reminded that you are loved. ❤️
+                </div>
 
             </div>
 
 
-            <div
-                class="gift"
-                onclick="openGift(this)"
-            >
+            <div class="gift" onclick="openGift(this)">
 
                 <div class="gift-icon">
                     🎀
                 </div>
 
-                <h3>
-                    Gift #2
-                </h3>
+                <h3>Gift #2</h3>
 
-                <p class="gift-message">
-                    I hope this year gives you
-                    countless reasons to smile.
-                </p>
+                <div class="gift-message">
+                    I hope this year gives you countless reasons to smile.
+                </div>
 
             </div>
 
 
-            <div
-                class="gift"
-                onclick="openGift(this)"
-            >
+            <div class="gift" onclick="openGift(this)">
 
                 <div class="gift-icon">
                     💝
                 </div>
 
-                <h3>
-                    Gift #3
-                </h3>
+                <h3>Gift #3</h3>
 
-                <p class="gift-message">
-                    No matter what happens,
-                    I'll always be proud of you.
-                </p>
+                <div class="gift-message">
+                    No matter what happens, I'll always be proud of you.
+                </div>
 
             </div>
-
 
         </div>
 
@@ -1636,117 +1016,9 @@ Happy birthday again, Excy. Enjoy kaayo today, ha. Amping always and enjoy every
 </section>
 
 
-<!-- =====================================================
-     7. BOUQUET
-===================================================== -->
-
-<section id="bouquet-section">
-
-    <div class="container">
-
-        <h2>
-            💐 For My Mah Girl
-        </h2>
-
-        <p>
-            A bouquet of pink and rose-colored roses,
-            just for you. 🌹🩷
-        </p>
-
-
-        <div class="bouquet-area">
-
-            <div class="bouquet">
-
-
-                <!-- stems -->
-
-                <div class="bouquet-stem stem-a"></div>
-                <div class="bouquet-stem stem-b"></div>
-                <div class="bouquet-stem stem-c"></div>
-                <div class="bouquet-stem stem-d"></div>
-                <div class="bouquet-stem stem-e"></div>
-
-
-                <!-- leaves -->
-
-                <div class="bouquet-leaf bleaf1"></div>
-                <div class="bouquet-leaf bleaf2"></div>
-                <div class="bouquet-leaf bleaf3"></div>
-                <div class="bouquet-leaf bleaf4"></div>
-
-
-                <!-- roses -->
-
-                <div class="rose rose-light rose1"></div>
-
-                <div class="rose rose-dark rose2"></div>
-
-                <div class="rose rose-pink rose3"></div>
-
-                <div class="rose rose-pink rose4"></div>
-
-                <div class="rose rose-dark rose5"></div>
-
-
-                <!-- wrapping -->
-
-                <div class="bouquet-wrap"></div>
-
-
-                <!-- ribbon -->
-
-                <div class="ribbon">
-
-                    <div class="ribbon-left"></div>
-
-                    <div class="ribbon-right"></div>
-
-                    <div class="ribbon-center"></div>
-
-                </div>
-
-
-                <!-- sparkles -->
-
-                <div class="sparkle sparkle1">
-                    ✨
-                </div>
-
-                <div class="sparkle sparkle2">
-                    ✨
-                </div>
-
-                <div class="sparkle sparkle3">
-                    ✦
-                </div>
-
-                <div class="sparkle sparkle4">
-                    ✦
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <p class="bouquet-message">
-
-            🌹 For my mah girl —
-            someone who deserves beautiful things,
-            beautiful memories,
-            and all the happiness in the world. 🩷
-
-        </p>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     8. FINAL
-===================================================== -->
+<!-- =========================
+     FINAL
+========================= -->
 
 <section id="final">
 
@@ -1757,32 +1029,27 @@ Happy birthday again, Excy. Enjoy kaayo today, ha. Amping always and enjoy every
         </div>
 
         <h1>
-            Happy Birthday, Mah Girl!
+            Happy Birthday, Excy!
         </h1>
 
         <p class="final-message">
 
-            I hope today reminds you
-            of how loved, appreciated,
-            and special you are.
+            I hope today reminds you of how loved,
+            appreciated, and special you are.
 
             <br><br>
 
-            Keep growing,
-            keep smiling,
-            keep chasing your dreams.
+            Keep growing, keep smiling,
+            keep chasing your dreams,
+
+            and never forget that someone will
+            always be cheering for you.
 
             <br><br>
 
-            I'll always be proud of you,
-            mah girl.
-
-            <br><br>
-
-            ❤️ Happy Birthday, Mah Girl ❤️
+            ❤️ Happy Birthday ❤️
 
         </p>
-
 
         <button onclick="heartExplosion()">
             💕 One Last Surprise
@@ -1795,9 +1062,9 @@ Happy birthday again, Excy. Enjoy kaayo today, ha. Amping always and enjoy every
 
 <script>
 
-/* =====================================================
+/* =========================
    OPEN SURPRISE
-===================================================== */
+========================= */
 
 function openSurprise() {
 
@@ -1810,9 +1077,9 @@ function openSurprise() {
 }
 
 
-/* =====================================================
+/* =========================
    ENVELOPE
-===================================================== */
+========================= */
 
 function openEnvelope() {
 
@@ -1824,24 +1091,22 @@ function openEnvelope() {
 }
 
 
-/* =====================================================
+/* =========================
    BLOW CANDLES
-===================================================== */
+========================= */
 
 function blowCandles() {
 
     const cake =
         document.getElementById("cake");
 
-    cake.classList.add("candles-out");
+    cake.classList.add("candles-blown");
 
-    createHearts(12);
-
-    setTimeout(function() {
+    setTimeout(() => {
 
         document
             .getElementById("wishMessage")
-            .classList.add("visible");
+            .classList.add("show");
 
         document
             .getElementById("wish-section")
@@ -1849,14 +1114,14 @@ function blowCandles() {
                 behavior: "smooth"
             });
 
-    }, 1000);
+    }, 1200);
 
 }
 
 
-/* =====================================================
+/* =========================
    MAKE WISH
-===================================================== */
+========================= */
 
 function makeWish() {
 
@@ -1869,33 +1134,43 @@ function makeWish() {
     if (input.value.trim() === "") {
 
         result.innerHTML =
-            "Make a wish first. ✨";
+            "<p style='margin-top:20px;'>Make a wish first. ✨</p>";
 
         return;
     }
 
-    result.innerHTML =
-        "✨ Your wish has been made. Keep believing, mah girl. ❤️";
+    result.innerHTML = `
+        <p style="
+            margin-top:25px;
+            font-size:1.2rem;
+            color:#c72c65;
+            font-weight:bold;
+        ">
+            ✨ Your wish has been made. ✨
+            <br>
+            Keep believing. ❤️
+        </p>
+    `;
 
-    createHearts(15);
+    createHearts(12);
 
 }
 
 
-/* =====================================================
+/* =========================
    GIFTS
-===================================================== */
+========================= */
 
 function openGift(gift) {
 
-    gift.classList.toggle("open");
+    gift.classList.toggle("opened");
 
 }
 
 
-/* =====================================================
-   HEART CREATOR
-===================================================== */
+/* =========================
+   FLOATING HEARTS
+========================= */
 
 function createHeart() {
 
@@ -1905,78 +1180,62 @@ function createHeart() {
     heart.className = "heart";
 
     heart.innerHTML =
-        Math.random() > 0.5
-        ? "❤️"
-        : "💕";
+        Math.random() > .5 ? "❤️" : "💕";
 
     heart.style.left =
         Math.random() * 100 + "vw";
 
     heart.style.fontSize =
-        15 + Math.random() * 25 + "px";
+        (15 + Math.random() * 25) + "px";
 
     heart.style.animationDuration =
-        4 + Math.random() * 4 + "s";
+        (4 + Math.random() * 4) + "s";
 
     document.body.appendChild(heart);
 
-    setTimeout(function() {
-
+    setTimeout(() => {
         heart.remove();
-
     }, 8000);
 
 }
 
 
-/* =====================================================
-   AUTOMATIC HEARTS
-===================================================== */
-
-setInterval(
-    createHeart,
-    1200
-);
+setInterval(createHeart, 900);
 
 
-/* =====================================================
-   MULTIPLE HEARTS
-===================================================== */
+/* =========================
+   CREATE MULTIPLE HEARTS
+========================= */
 
 function createHearts(amount) {
 
-    for (
-        let i = 0;
-        i < amount;
-        i++
-    ) {
+    for (let i = 0; i < amount; i++) {
 
-        setTimeout(
-            createHeart,
-            i * 100
-        );
+        setTimeout(() => {
+            createHeart();
+        }, i * 120);
 
     }
 
 }
 
 
-/* =====================================================
-   FINAL SURPRISE
-===================================================== */
+/* =========================
+   FINAL HEART EXPLOSION
+========================= */
 
 function heartExplosion() {
 
-    createHearts(70);
+    createHearts(60);
 
-    setTimeout(function() {
+    setTimeout(() => {
 
         alert(
-            "Happy Birthday, Mah Girl! ❤️\n\n" +
+            "Happy Birthday, Excy! ❤️\n\n" +
             "I hope all your 11:11 wishes come true. ✨"
         );
 
-    }, 1200);
+    }, 1000);
 
 }
 
