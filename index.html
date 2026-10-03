@@ -491,8 +491,6 @@ audio {
     line-height: 1.7;
 }
 
-/* floating hearts */
-
 .heart {
     position: fixed;
     bottom: -30px;
@@ -506,18 +504,16 @@ audio {
         transform: translateY(0) scale(.7);
         opacity: 0;
     }
+
     15% {
         opacity: 1;
     }
+
     100% {
         transform: translateY(-100vh) rotate(25deg);
         opacity: 0;
     }
 }
-
-/* =========================
-   MOBILE
-========================= */
 
 @media (max-width: 700px) {
 
@@ -557,10 +553,7 @@ audio {
         min-height: 450px;
     }
 }
-</style>
-</head>
-
-<body>
+</style><body>
 
 <!-- =========================
      OPENING
@@ -585,6 +578,7 @@ audio {
             <h3>🎵 Birthday Music</h3>
 
             <div class="music-row">
+
                 <button class="music-button" onclick="playSong('song1.mp3')">
                     12:51
                 </button>
@@ -592,6 +586,7 @@ audio {
                 <button class="music-button" onclick="playSong('song2.mp3')">
                     Magnolia
                 </button>
+
             </div>
 
             <audio id="musicPlayer" controls></audio>
@@ -772,6 +767,7 @@ audio {
             <div class="flower f5"></div>
 
             <div class="stem"></div>
+
             <div class="bouquet-wrap"></div>
 
         </div>
@@ -793,9 +789,13 @@ audio {
 
     <div class="container">
 
-        <div class="clock">11:11</div>
+        <div class="clock">
+            11:11
+        </div>
 
-        <h2>Make a Wish, Mah Girl ❤️</h2>
+        <h2>
+            Make a Wish, Mah Girl ❤️
+        </h2>
 
         <p>
             Close your eyes and make your wish.
@@ -820,15 +820,21 @@ audio {
 
     <div class="container">
 
-        <h2>Three Little Gifts for You 🎁</h2>
+        <h2>
+            Three Little Gifts for You 🎁
+        </h2>
 
         <div class="gifts">
 
             <button class="gift">
 
-                <div class="gift-icon">🎁</div>
+                <div class="gift-icon">
+                    🎁
+                </div>
 
-                <strong>Gift One</strong>
+                <strong>
+                    Gift One
+                </strong>
 
                 <div class="gift-text">
                     You deserve all the happiness and good things coming your way. ❤️
@@ -839,9 +845,13 @@ audio {
 
             <button class="gift">
 
-                <div class="gift-icon">🎀</div>
+                <div class="gift-icon">
+                    🎀
+                </div>
 
-                <strong>Gift Two</strong>
+                <strong>
+                    Gift Two
+                </strong>
 
                 <div class="gift-text">
                     Keep growing, keep smiling, and keep being the person you want to become.
@@ -852,9 +862,13 @@ audio {
 
             <button class="gift">
 
-                <div class="gift-icon">💝</div>
+                <div class="gift-icon">
+                    💝
+                </div>
 
-                <strong>Gift Three</strong>
+                <strong>
+                    Gift Three
+                </strong>
 
                 <div class="gift-text">
                     And most importantly, always remember that you are loved and cared for.
@@ -866,10 +880,7 @@ audio {
 
     </div>
 
-</section>
-
-
-<!-- =========================
+</section><!-- =========================
      FINAL GIFT
 ========================= -->
 
@@ -879,7 +890,7 @@ audio {
 
         <div class="final-stage">
 
-            <!-- FIRST SCREEN -->
+            <!-- FINAL GIFT INTRO -->
 
             <div class="final-screen" id="finalIntro">
 
@@ -902,7 +913,7 @@ audio {
             </div>
 
 
-            <!-- ANIMATION SCREEN -->
+            <!-- ANIMATION -->
 
             <div class="final-screen hidden" id="finalAnimation">
 
@@ -921,7 +932,7 @@ audio {
             </div>
 
 
-            <!-- VIDEO SCREEN -->
+            <!-- FRIENDS VIDEO -->
 
             <div class="final-screen hidden" id="videoScreen">
 
@@ -935,9 +946,15 @@ audio {
 
                 <div class="video-wrap">
 
-                    <video id="friendsVideo" controls playsinline>
+                    <video
+                        id="friendsVideo"
+                        controls
+                        playsinline
+                        preload="metadata">
 
-                        <source src="friends.mp4" type="video/mp4">
+                        <source
+                            src="friends.mp4"
+                            type="video/mp4">
 
                         Your browser does not support this video.
 
@@ -948,9 +965,11 @@ audio {
             </div>
 
 
-            <!-- FINAL MESSAGE -->
+            <!-- FINAL MESSAGE AFTER VIDEO -->
 
-            <div class="final-screen hidden final-message" id="finalMessage">
+            <div
+                class="final-screen hidden final-message"
+                id="finalMessage">
 
                 <div class="big-heart">
                     ❤️
@@ -982,10 +1001,7 @@ audio {
 
     </div>
 
-</section>
-
-
-<script>
+</section><script>
 
 /* =========================
    MUSIC
@@ -997,7 +1013,7 @@ function playSong(file) {
 
     musicPlayer.src = file;
 
-    musicPlayer.play().catch(() => {
+    musicPlayer.play().catch(function() {
         musicPlayer.controls = true;
     });
 
@@ -1005,96 +1021,128 @@ function playSong(file) {
 
 
 /* =========================
-   START BUTTON
+   OPEN SURPRISE
 ========================= */
 
-document.getElementById("startButton").addEventListener("click", () => {
+document
+    .getElementById("startButton")
+    .addEventListener("click", function() {
 
-    document.getElementById("letter-section").scrollIntoView({
-        behavior: "smooth"
+        document
+            .getElementById("letter-section")
+            .scrollIntoView({
+                behavior: "smooth"
+            });
+
     });
 
-});
-
 
 /* =========================
-   LETTER
+   OPEN LETTER
 ========================= */
 
-document.getElementById("openLetter").addEventListener("click", function() {
+document
+    .getElementById("openLetter")
+    .addEventListener("click", function() {
 
-    const envelope = document.getElementById("envelope");
+        const envelope =
+            document.getElementById("envelope");
 
-    envelope.classList.add("open");
+        envelope.classList.add("open");
 
-    this.style.display = "none";
+        this.style.display = "none";
 
-});
-
-
-/* =========================
-   CAKE
-========================= */
-
-document.getElementById("blowButton").addEventListener("click", function() {
-
-    document.querySelectorAll(".candle").forEach(candle => {
-        candle.classList.add("out");
     });
 
-    document.getElementById("cakeMessage").textContent =
-        "Wish made. 🎂❤️";
 
-    createHearts(12);
+/* =========================
+   BLOW CANDLES
+========================= */
 
-});
+document
+    .getElementById("blowButton")
+    .addEventListener("click", function() {
+
+        const candles =
+            document.querySelectorAll(".candle");
+
+        candles.forEach(function(candle) {
+
+            candle.classList.add("out");
+
+        });
+
+        document
+            .getElementById("cakeMessage")
+            .textContent = "Wish made. 🎂❤️";
+
+        createHearts(12);
+
+    });
 
 
 /* =========================
-   11:11
+   11:11 WISH
 ========================= */
 
-document.getElementById("wishButton").addEventListener("click", function() {
+document
+    .getElementById("wishButton")
+    .addEventListener("click", function() {
 
-    document.getElementById("wishMessage").textContent =
-        "Wish made. ❤️";
+        document
+            .getElementById("wishMessage")
+            .textContent = "Wish made. ❤️";
 
-    createHearts(15);
+        createHearts(15);
 
-});
+    });
 
 
 /* =========================
    GIFTS
 ========================= */
 
-document.querySelectorAll(".gift").forEach(gift => {
+document
+    .querySelectorAll(".gift")
+    .forEach(function(gift) {
 
-    gift.addEventListener("click", () => {
+        gift.addEventListener("click", function() {
 
-        gift.classList.toggle("opened");
+            gift.classList.toggle("opened");
+
+        });
 
     });
 
-});
-
 
 /* =========================
-   HEART ANIMATION
+   FLOATING HEARTS
 ========================= */
 
-function createHearts(amount = 15) {
+function createHearts(amount) {
 
-    const hearts = ["❤️", "💕", "💗", "💖", "✨"];
+    const heartTypes = [
+        "❤️",
+        "💕",
+        "💗",
+        "💖",
+        "✨"
+    ];
 
     for (let i = 0; i < amount; i++) {
 
-        const heart = document.createElement("div");
+        const heart =
+            document.createElement("div");
 
         heart.className = "heart";
 
         heart.textContent =
-            hearts[Math.floor(Math.random() * hearts.length)];
+            heartTypes[
+                Math.floor(
+                    Math.random() *
+                    heartTypes.length
+                )
+            ];
 
         heart.style.left =
             Math.random() * 100 + "vw";
@@ -1104,8 +1152,10 @@ function createHearts(amount = 15) {
 
         document.body.appendChild(heart);
 
-        setTimeout(() => {
+        setTimeout(function() {
+
             heart.remove();
+
         }, 5500);
 
     }
@@ -1114,7 +1164,7 @@ function createHearts(amount = 15) {
 
 
 /* =========================
-   FINAL GIFT
+   FINAL GIFT ELEMENTS
 ========================= */
 
 const finalIntro =
@@ -1129,18 +1179,27 @@ const videoScreen =
 const finalMessage =
     document.getElementById("finalMessage");
 
+const finalGiftButton =
+    document.getElementById("finalGiftButton");
+
 const friendsVideo =
     document.getElementById("friendsVideo");
 
 
-function showScreen(screen) {
+/* =========================
+   SHOW FINAL SCREEN
+========================= */
 
-    [
+function showFinalScreen(screen) {
+
+    const screens = [
         finalIntro,
         finalAnimation,
         videoScreen,
         finalMessage
-    ].forEach(item => {
+    ];
+
+    screens.forEach(function(item) {
 
         item.classList.add("hidden");
 
@@ -1151,44 +1210,66 @@ function showScreen(screen) {
 }
 
 
-/* Open final gift */
+/* =========================
+   OPEN FINAL GIFT
+========================= */
 
-document
-    .getElementById("finalGiftButton")
-    .addEventListener("click", function() {
-
-        showScreen(finalAnimation);
-
-        createHearts(25);
+finalGiftButton.addEventListener(
+    "click",
+    function() {
 
         /*
-            After the animation,
-            show the friends' video.
-        */
+         * Hide the gift and show
+         * the little animation.
+         */
 
-        setTimeout(() => {
+        showFinalScreen(finalAnimation);
 
-            showScreen(videoScreen);
+        /*
+         * Floating hearts during
+         * the animation.
+         */
+
+        createHearts(30);
+
+        /*
+         * After the animation,
+         * show the friends' video.
+         */
+
+        setTimeout(function() {
+
+            showFinalScreen(videoScreen);
+
+            /*
+             * Start the video from
+             * the beginning.
+             */
 
             friendsVideo.currentTime = 0;
 
             /*
-                The browser is much more likely to allow
-                playback because this sequence began with
-                the user's button click.
-            */
+             * Try to play automatically.
+             *
+             * Because this action started
+             * from the user's button click,
+             * browsers are more likely to
+             * allow playback.
+             */
 
-            const playPromise = friendsVideo.play();
+            const playAttempt =
+                friendsVideo.play();
 
-            if (playPromise !== undefined) {
+            if (playAttempt !== undefined) {
 
-                playPromise.catch(() => {
+                playAttempt.catch(function() {
 
                     /*
-                        If autoplay is blocked,
-                        the video controls remain visible
-                        so she can press play.
-                    */
+                     * If the browser blocks
+                     * autoplay, the normal
+                     * video controls remain
+                     * available.
+                     */
 
                 });
 
@@ -1196,21 +1277,46 @@ document
 
         }, 3500);
 
-    });
+    }
+);
 
 
 /* =========================
-   VIDEO ENDS
+   WHEN VIDEO ENDS
 ========================= */
 
-friendsVideo.addEventListener("ended", function() {
+friendsVideo.addEventListener(
+    "ended",
+    function() {
 
-    showScreen(finalMessage);
+        /*
+         * Hide the video.
+         */
 
-    createHearts(40);
+        showFinalScreen(finalMessage);
 
-});
+        /*
+         * Final heart explosion.
+         */
 
+        createHearts(45);
+
+        /*
+         * Scroll the final message
+         * into view smoothly.
+         */
+
+        setTimeout(function() {
+
+            finalMessage.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+
+        }, 100);
+
+    }
+);
 
 </script>
 
