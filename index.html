@@ -1,0 +1,1738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For Excy ❤️</title>
+
+<style>
+
+/* =====================================================
+   BASIC SETTINGS
+===================================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    color: #6b2948;
+    overflow-x: hidden;
+
+    background:
+        radial-gradient(circle at top left, #ffd6e7, transparent 35%),
+        radial-gradient(circle at bottom right, #ffc0d9, transparent 35%),
+        linear-gradient(135deg, #fff0f6, #ffd6e7, #ffeaf2);
+}
+
+
+/* =====================================================
+   SECTIONS
+===================================================== */
+
+section {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 40px 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 900px;
+    text-align: center;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.68);
+
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    border: 1px solid rgba(255, 255, 255, 0.8);
+
+    border-radius: 30px;
+
+    padding: 45px 30px;
+
+    box-shadow:
+        0 20px 50px rgba(150, 50, 90, 0.15);
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+button {
+    border: none;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff6fa5,
+            #e8437f
+        );
+
+    color: white;
+
+    padding: 15px 28px;
+
+    border-radius: 50px;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 25px rgba(220, 60, 120, 0.25);
+
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: translateY(-3px) scale(1.03);
+
+    box-shadow:
+        0 15px 30px rgba(220, 60, 120, 0.35);
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+
+/* =====================================================
+   FLOATING HEARTS
+===================================================== */
+
+.heart {
+    position: fixed;
+
+    bottom: -30px;
+
+    font-size: 20px;
+
+    animation:
+        floatHeart linear forwards;
+
+    pointer-events: none;
+
+    z-index: 1;
+
+    opacity: 0.8;
+}
+
+@keyframes floatHeart {
+
+    from {
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.8;
+    }
+
+    to {
+        transform:
+            translateY(-110vh)
+            rotate(360deg);
+
+        opacity: 0;
+    }
+}
+
+
+/* =====================================================
+   OPENING
+===================================================== */
+
+#opening {
+    position: relative;
+}
+
+.opening-title {
+
+    font-size:
+        clamp(42px, 8vw, 85px);
+
+    color: #d6336c;
+
+    margin-bottom: 20px;
+
+    text-shadow:
+        0 5px 20px rgba(200, 50, 100, 0.15);
+}
+
+.opening-subtitle {
+
+    font-size: 20px;
+
+    line-height: 1.8;
+
+    margin-bottom: 35px;
+}
+
+
+/* =====================================================
+   LETTER
+===================================================== */
+
+.letter-title {
+
+    font-size: 45px;
+
+    color: #d6336c;
+
+    margin-bottom: 25px;
+}
+
+
+/* =====================================================
+   ENVELOPE
+===================================================== */
+
+.envelope-container {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    margin: 40px 0;
+}
+
+.envelope {
+
+    width: 280px;
+
+    height: 190px;
+
+    background: #ff8fb7;
+
+    position: relative;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 20px 40px rgba(160, 50, 90, 0.2);
+
+    transition: 0.4s;
+}
+
+.envelope:hover {
+
+    transform:
+        translateY(-8px)
+        rotate(-1deg);
+}
+
+.envelope:before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    border-left:
+        140px solid transparent;
+
+    border-right:
+        140px solid transparent;
+
+    border-top:
+        100px solid #ffb3cc;
+
+    z-index: 2;
+
+    transition: 0.8s;
+}
+
+.envelope:after {
+
+    content: "💌";
+
+    position: absolute;
+
+    font-size: 55px;
+
+    left: 50%;
+    top: 52%;
+
+    transform:
+        translate(-50%, -50%);
+
+    z-index: 4;
+}
+
+.envelope.open {
+
+    transform:
+        translateY(-20px);
+}
+
+.envelope.open:before {
+
+    transform:
+        rotateX(180deg);
+
+    transform-origin: top;
+}
+
+.click-text {
+
+    margin-top: 20px;
+
+    font-style: italic;
+}
+
+
+/* =====================================================
+   LETTER CONTENT
+===================================================== */
+
+.actual-letter {
+
+    display: none;
+
+    text-align: left;
+
+    background:
+        rgba(255, 255, 255, 0.92);
+
+    padding: 35px;
+
+    border-radius: 25px;
+
+    line-height: 2;
+
+    font-size: 17px;
+
+    box-shadow:
+        inset 0 0 20px
+        rgba(220, 80, 130, 0.08);
+
+    animation:
+        letterAppear 1s ease;
+}
+
+.actual-letter.show {
+
+    display: block;
+}
+
+.actual-letter p {
+
+    margin-bottom: 20px;
+}
+
+@keyframes letterAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(30px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* =====================================================
+   CAKE
+===================================================== */
+
+.cake-title {
+
+    font-size: 42px;
+
+    color: #d6336c;
+
+    margin-bottom: 30px;
+}
+
+.cake {
+
+    position: relative;
+
+    width: 280px;
+
+    height: 210px;
+
+    margin: 50px auto 30px;
+}
+
+
+/* Cake base */
+
+.cake-bottom {
+
+    position: absolute;
+
+    bottom: 0;
+    left: 30px;
+
+    width: 220px;
+    height: 110px;
+
+    background:
+        linear-gradient(
+            #ff9abd,
+            #ff75a5
+        );
+
+    border-radius:
+        15px 15px 25px 25px;
+
+    box-shadow:
+        0 15px 20px
+        rgba(160, 50, 90, 0.15);
+}
+
+
+/* Cake top */
+
+.cake-top {
+
+    position: absolute;
+
+    bottom: 90px;
+    left: 45px;
+
+    width: 190px;
+    height: 55px;
+
+    background: #ffd0df;
+
+    border-radius: 50%;
+}
+
+
+/* Icing */
+
+.icing {
+
+    position: absolute;
+
+    bottom: 75px;
+    left: 55px;
+
+    width: 170px;
+    height: 45px;
+
+    background: #fff3f7;
+
+    border-radius: 50%;
+}
+
+
+/* Candles */
+
+.candle {
+
+    position: absolute;
+
+    bottom: 125px;
+
+    width: 16px;
+    height: 55px;
+
+    background:
+        repeating-linear-gradient(
+            45deg,
+            #ffffff,
+            #ffffff 5px,
+            #ffb1ca 5px,
+            #ffb1ca 10px
+        );
+
+    border-radius: 4px;
+
+    z-index: 5;
+}
+
+.candle-one {
+    left: 75px;
+}
+
+.candle-two {
+    left: 132px;
+}
+
+.candle-three {
+    left: 189px;
+}
+
+
+/* Flames */
+
+.flame {
+
+    position: absolute;
+
+    top: -27px;
+    left: 2px;
+
+    width: 12px;
+    height: 21px;
+
+    background:
+        linear-gradient(
+            #fff3a6,
+            #ff9d00
+        );
+
+    border-radius:
+        50% 50% 50% 50%;
+
+    box-shadow:
+        0 0 12px #ffb300;
+
+    animation:
+        flame 0.6s infinite alternate;
+}
+
+@keyframes flame {
+
+    from {
+
+        transform:
+            scale(1)
+            rotate(-5deg);
+    }
+
+    to {
+
+        transform:
+            scale(1.2)
+            rotate(5deg);
+    }
+}
+
+
+.cake-message {
+
+    display: none;
+
+    margin-top: 25px;
+
+    font-size: 22px;
+
+    color: #d6336c;
+
+    line-height: 1.7;
+}
+
+.cake-message.show {
+
+    display: block;
+}
+
+
+/* =====================================================
+   11:11
+===================================================== */
+
+.eleven {
+
+    font-size: 80px;
+
+    font-weight: bold;
+
+    color: #d6336c;
+
+    margin: 25px 0;
+
+    text-shadow:
+        0 5px 20px
+        rgba(200, 50, 100, 0.15);
+}
+
+.wish-message {
+
+    display: none;
+
+    margin-top: 30px;
+
+    font-size: 22px;
+
+    line-height: 1.8;
+
+    color: #a62c59;
+}
+
+.wish-message.show {
+
+    display: block;
+
+    animation:
+        letterAppear 1s ease;
+}
+
+
+/* =====================================================
+   GIFTS
+===================================================== */
+
+.gifts {
+
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 25px;
+
+    margin-top: 40px;
+}
+
+.gift {
+
+    width: 180px;
+
+    min-height: 180px;
+
+    background:
+        rgba(255, 255, 255, 0.8);
+
+    border-radius: 25px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 20px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+    box-shadow:
+        0 10px 30px
+        rgba(150, 50, 90, 0.12);
+}
+
+.gift:hover {
+
+    transform:
+        translateY(-8px)
+        rotate(2deg);
+}
+
+.gift-icon {
+
+    font-size: 65px;
+
+    margin-bottom: 15px;
+}
+
+.gift-message {
+
+    display: none;
+
+    font-size: 15px;
+
+    line-height: 1.5;
+
+    margin-top: 10px;
+}
+
+.gift-message.show {
+
+    display: block;
+}
+
+
+/* =====================================================
+   FINAL SURPRISE
+===================================================== */
+
+#final {
+
+    background:
+        radial-gradient(
+            circle at center,
+            #ffd1e1,
+            #ffb0cb,
+            #f78fb1
+        );
+}
+
+.final-title {
+
+    font-size:
+        clamp(45px, 8vw, 90px);
+
+    color: white;
+
+    text-shadow:
+        0 5px 30px
+        rgba(100, 20, 50, 0.2);
+
+    margin-bottom: 25px;
+}
+
+.final-message {
+
+    color: white;
+
+    font-size: 23px;
+
+    line-height: 1.8;
+
+    max-width: 700px;
+
+    margin: auto;
+}
+
+
+/* =====================================================
+   HEART EXPLOSION
+===================================================== */
+
+.explosion-heart {
+
+    position: fixed;
+
+    left: 50%;
+    top: 50%;
+
+    font-size: 30px;
+
+    pointer-events: none;
+
+    z-index: 999;
+
+    animation:
+        explode 1.8s ease-out forwards;
+}
+
+@keyframes explode {
+
+    from {
+
+        transform:
+            translate(-50%, -50%)
+            scale(0);
+
+        opacity: 1;
+    }
+
+    to {
+
+        transform:
+            translate(
+                calc(-50% + var(--x)),
+                calc(-50% + var(--y))
+            )
+            scale(1.5)
+            rotate(360deg);
+
+        opacity: 0;
+    }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .card {
+
+        padding:
+            30px 20px;
+    }
+
+    .actual-letter {
+
+        padding:
+            25px 20px;
+
+        font-size: 16px;
+
+        line-height: 1.9;
+    }
+
+    .envelope {
+
+        width: 240px;
+
+        height: 165px;
+    }
+
+    .envelope:before {
+
+        border-left-width: 120px;
+
+        border-right-width: 120px;
+    }
+
+    .gifts {
+
+        flex-direction: column;
+
+        align-items: center;
+    }
+
+    .gift {
+
+        width: 90%;
+    }
+
+    .eleven {
+
+        font-size: 60px;
+    }
+
+    .cake {
+
+        transform:
+            scale(0.9);
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     SECTION 1 — OPENING
+===================================================== -->
+
+<section id="opening">
+
+<div class="container">
+
+<div class="card">
+
+<div style="font-size:70px;">
+🎂
+</div>
+
+
+<h1 class="opening-title">
+
+Happy Birthday, Excy ❤️
+
+</h1>
+
+
+<p class="opening-subtitle">
+
+I could have just greeted you normally...<br>
+
+but I wanted to make something
+a little more special for you.
+
+</p>
+
+
+<button onclick="goToLetter()">
+
+💌 Open Your Surprise
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SECTION 2 — LETTER
+===================================================== -->
+
+<section id="letter">
+
+<div class="container">
+
+<div class="card">
+
+
+<h2 class="letter-title">
+
+A Little Letter For You 💌
+
+</h2>
+
+
+<p>
+
+I wanted you to have something
+you can keep and read whenever you want.
+
+</p>
+
+
+
+<div class="envelope-container">
+
+<div
+class="envelope"
+id="envelope"
+onclick="openEnvelope()">
+
+</div>
+
+</div>
+
+
+<p class="click-text">
+
+Tap the envelope to open it ❤️
+
+</p>
+
+
+
+<!-- =================================================
+     YOUR LETTER
+================================================= -->
+
+<div
+class="actual-letter"
+id="actualLetter">
+
+
+<p>
+Happy birthday, Excy. I’m really proud of what you have become and how much you’ve changed. I’ve seen all the changes you’ve made, and I really hope you keep it up. Gusto lang nako nga kabalo ka nga I’ll always be here, supporting you, loving you, caring for you, and being proud of you.
+</p>
+
+
+<p>
+I hope you enjoy your day and spend it with the people who make you happy. Deserve nimo tanan nga good things nga moabot sa imo life. Sana this new year of your life gives you more happiness, more memories, and more reasons to smile. Enjoy lang sa imong day and ayaw kaayo kabalaka sa mga things nga makapastress nimo.
+</p>
+
+
+<p>
+I’m really happy nga nakakita ko sa imong growth and sa person nga nahimo nimo karon. Padayon lang gyud sa imong life, even when things get difficult. Kaya nimo na. I’ll always be proud of you, no matter how big or small your achievements are.
+</p>
+
+
+<p>
+And I hope all of your 11:11 wishes come true. Sana matuman tanan nimong gipangandoy, even the wishes you keep to yourself. I hope makuha nimo ang happiness nga deserve nimo and that this year will be good to you.
+</p>
+
+
+<p>
+Happy birthday again, Excy. Enjoy kaayo today, ha. Amping always and enjoy every moment of your day.
+</p>
+
+
+</div>
+
+
+<br>
+
+
+<button onclick="scrollToSection('cake')">
+
+🎂 Continue
+
+</button>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SECTION 3 — CAKE
+===================================================== -->
+
+<section id="cake">
+
+<div class="container">
+
+<div class="card">
+
+
+<h2 class="cake-title">
+
+Make a Wish 🎂
+
+</h2>
+
+
+<p>
+
+Before you continue...<br>
+
+you have to blow out
+your birthday candles.
+
+</p>
+
+
+
+<div class="cake">
+
+
+<div class="cake-bottom"></div>
+
+<div class="cake-top"></div>
+
+<div class="icing"></div>
+
+
+<!-- Candle 1 -->
+
+<div class="candle candle-one">
+
+<div class="flame"></div>
+
+</div>
+
+
+<!-- Candle 2 -->
+
+<div class="candle candle-two">
+
+<div class="flame"></div>
+
+</div>
+
+
+<!-- Candle 3 -->
+
+<div class="candle candle-three">
+
+<div class="flame"></div>
+
+</div>
+
+
+</div>
+
+
+
+<button onclick="blowCandles()">
+
+🎂 Blow the Candles
+
+</button>
+
+
+
+<div
+class="cake-message"
+id="cakeMessage">
+
+✨ Your candles are out!<br>
+
+I hope your wish comes true. ❤️
+
+</div>
+
+
+<br>
+<br>
+
+
+<button onclick="scrollToSection('wish')">
+
+✨ Continue
+
+</button>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SECTION 4 — 11:11
+===================================================== -->
+
+<section id="wish">
+
+<div class="container">
+
+<div class="card">
+
+
+<h2
+style="
+font-size:40px;
+color:#d6336c;
+">
+
+11:11 ✨
+
+</h2>
+
+
+<p style="margin-top:20px;">
+
+You know what time it is...
+
+</p>
+
+
+<div class="eleven">
+
+11:11
+
+</div>
+
+
+<p>
+
+Close your eyes for a moment.<br>
+
+Think of something you really want.
+
+</p>
+
+
+<br>
+
+
+<button onclick="makeWish()">
+
+✨ Make a Wish
+
+</button>
+
+
+
+<div
+class="wish-message"
+id="wishMessage">
+
+
+May this year's 11:11 wishes<br>
+
+become reality. ❤️
+
+
+<br>
+<br>
+
+
+Especially the ones
+you never tell anyone about.
+
+
+</div>
+
+
+<br>
+<br>
+
+
+<button onclick="scrollToSection('gifts')">
+
+🎁 Continue
+
+</button>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SECTION 5 — GIFTS
+===================================================== -->
+
+<section id="gifts">
+
+<div class="container">
+
+<div class="card">
+
+
+<h2
+style="
+font-size:42px;
+color:#d6336c;
+">
+
+Three Little Gifts 🎁
+
+</h2>
+
+
+<p style="margin-top:15px;">
+
+You can't have a birthday surprise
+without gifts.
+
+</p>
+
+
+
+<div class="gifts">
+
+
+<!-- ================= GIFT 1 ================= -->
+
+<div
+class="gift"
+onclick="openGift(1)">
+
+
+<div class="gift-icon">
+
+🎁
+
+</div>
+
+
+<strong>
+
+Gift #1
+
+</strong>
+
+
+<div
+class="gift-message"
+id="gift1">
+
+A year full of beautiful memories
+waiting for you. ❤️
+
+</div>
+
+
+</div>
+
+
+
+<!-- ================= GIFT 2 ================= -->
+
+<div
+class="gift"
+onclick="openGift(2)">
+
+
+<div class="gift-icon">
+
+🎀
+
+</div>
+
+
+<strong>
+
+Gift #2
+
+</strong>
+
+
+<div
+class="gift-message"
+id="gift2">
+
+More reasons to smile,
+laugh, and enjoy life.
+
+</div>
+
+
+</div>
+
+
+
+<!-- ================= GIFT 3 ================= -->
+
+<div
+class="gift"
+onclick="openGift(3)">
+
+
+<div class="gift-icon">
+
+💝
+
+</div>
+
+
+<strong>
+
+Gift #3
+
+</strong>
+
+
+<div
+class="gift-message"
+id="gift3">
+
+Someone who will always be
+cheering for you. ❤️
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+<br>
+<br>
+
+
+<button onclick="finalExplosion()">
+
+💖 One Last Surprise
+
+</button>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SECTION 6 — FINAL
+===================================================== -->
+
+<section id="final">
+
+<div class="container">
+
+<div
+class="card"
+style="
+background:rgba(255,255,255,0.2);
+">
+
+
+<div style="font-size:80px;">
+
+💖
+
+</div>
+
+
+<h1 class="final-title">
+
+Happy Birthday, Excy!
+
+</h1>
+
+
+<p class="final-message">
+
+
+I hope you know how special you are.
+
+
+<br>
+<br>
+
+
+I hope this new chapter brings you
+more happiness, more adventures,
+more achievements, and more memories.
+
+
+<br>
+<br>
+
+
+Keep growing.<br>
+
+Keep dreaming.<br>
+
+Keep smiling.
+
+
+<br>
+<br>
+
+
+And most importantly...
+
+
+<br>
+<br>
+
+
+<strong>
+
+Never forget that you are loved. ❤️
+
+</strong>
+
+
+<br>
+<br>
+
+
+Happy Birthday! 🎂✨
+
+
+</p>
+
+
+<br>
+<br>
+
+
+<button
+onclick="
+window.scrollTo({
+top:0,
+behavior:'smooth'
+})
+">
+
+❤️ Read Again
+
+</button>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+
+/* =====================================================
+   SCROLL TO SECTION
+===================================================== */
+
+function scrollToSection(id) {
+
+    document
+        .getElementById(id)
+        .scrollIntoView({
+            behavior: "smooth"
+        });
+
+}
+
+
+
+/* =====================================================
+   OPENING → LETTER
+===================================================== */
+
+function goToLetter() {
+
+    scrollToSection("letter");
+
+}
+
+
+
+/* =====================================================
+   OPEN ENVELOPE
+===================================================== */
+
+function openEnvelope() {
+
+    const envelope =
+        document.getElementById("envelope");
+
+    const letter =
+        document.getElementById("actualLetter");
+
+
+    envelope.classList.add("open");
+
+
+    setTimeout(function() {
+
+        letter.classList.add("show");
+
+
+        letter.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+
+
+    }, 700);
+
+}
+
+
+
+/* =====================================================
+   BLOW CANDLES
+===================================================== */
+
+function blowCandles() {
+
+    const flames =
+        document.querySelectorAll(".flame");
+
+
+    flames.forEach(function(flame) {
+
+        flame.style.display = "none";
+
+    });
+
+
+    document
+        .getElementById("cakeMessage")
+        .classList.add("show");
+
+
+    createHeartExplosion();
+
+}
+
+
+
+/* =====================================================
+   11:11 WISH
+===================================================== */
+
+function makeWish() {
+
+    document
+        .getElementById("wishMessage")
+        .classList.add("show");
+
+
+    createHeartExplosion();
+
+}
+
+
+
+/* =====================================================
+   OPEN GIFTS
+===================================================== */
+
+function openGift(number) {
+
+    const message =
+        document.getElementById(
+            "gift" + number
+        );
+
+
+    message.classList.toggle("show");
+
+}
+
+
+
+/* =====================================================
+   FLOATING HEARTS
+===================================================== */
+
+function createFloatingHeart() {
+
+    const heart =
+        document.createElement("div");
+
+
+    heart.className = "heart";
+
+
+    const hearts = [
+
+        "❤️",
+        "💕",
+        "💗",
+        "💖",
+        "💘",
+        "💝"
+
+    ];
+
+
+    heart.innerHTML =
+        hearts[
+            Math.floor(
+                Math.random() *
+                hearts.length
+            )
+        ];
+
+
+    heart.style.left =
+        Math.random() * 100 + "vw";
+
+
+    heart.style.fontSize =
+        (15 + Math.random() * 25)
+        + "px";
+
+
+    heart.style.animationDuration =
+        (5 + Math.random() * 6)
+        + "s";
+
+
+    document.body.appendChild(heart);
+
+
+    setTimeout(function() {
+
+        heart.remove();
+
+    }, 11000);
+
+}
+
+
+setInterval(
+    createFloatingHeart,
+    700
+);
+
+
+
+/* =====================================================
+   HEART EXPLOSION
+===================================================== */
+
+function createHeartExplosion() {
+
+    for (
+        let i = 0;
+        i < 25;
+        i++
+    ) {
+
+
+        const heart =
+            document.createElement("div");
+
+
+        heart.className =
+            "explosion-heart";
+
+
+        heart.innerHTML = "❤️";
+
+
+        const x =
+            (Math.random() - 0.5)
+            * 700;
+
+
+        const y =
+            (Math.random() - 0.5)
+            * 700;
+
+
+        heart.style.setProperty(
+            "--x",
+            x + "px"
+        );
+
+
+        heart.style.setProperty(
+            "--y",
+            y + "px"
+        );
+
+
+        document.body.appendChild(heart);
+
+
+        setTimeout(function() {
+
+            heart.remove();
+
+        }, 2000);
+
+    }
+
+}
+
+
+
+/* =====================================================
+   FINAL SURPRISE
+===================================================== */
+
+function finalExplosion() {
+
+    createHeartExplosion();
+
+
+    setTimeout(function() {
+
+        scrollToSection("final");
+
+    }, 700);
+
+}
+
+</script>
+
+
+</body>
+</html>
