@@ -951,6 +951,184 @@ body::before {
     font-weight: 700;
 }
 
+
+
+/* ---------------------------------------------------------
+   09B. BOUQUET SECTION
+   --------------------------------------------------------- */
+#bouquet-section {
+    background: linear-gradient(180deg, #fff8fc 0%, #fff1f7 100%);
+}
+
+.bouquet-card {
+    width: min(720px, 100%);
+    margin: 40px auto 0;
+    padding: 38px 24px 30px;
+    border-radius: var(--radius-lg);
+    background: rgba(255,255,255,0.92);
+    box-shadow: var(--shadow-card);
+    text-align: center;
+    overflow: hidden;
+}
+
+.bouquet {
+    position: relative;
+    width: min(390px, 92vw);
+    height: 390px;
+    margin: 0 auto;
+}
+
+.bouquet-stems {
+    position: absolute;
+    left: 50%;
+    bottom: 76px;
+    width: 170px;
+    height: 220px;
+    transform: translateX(-50%);
+}
+
+.bouquet-stem {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 8px;
+    height: 205px;
+    transform-origin: bottom center;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #6e9a62, #9dbb82);
+}
+
+.bouquet-stem:nth-child(1) { transform: rotate(-25deg); height: 190px; }
+.bouquet-stem:nth-child(2) { transform: rotate(-13deg); height: 210px; }
+.bouquet-stem:nth-child(3) { transform: rotate(0deg); height: 220px; }
+.bouquet-stem:nth-child(4) { transform: rotate(13deg); height: 210px; }
+.bouquet-stem:nth-child(5) { transform: rotate(25deg); height: 190px; }
+.bouquet-stem:nth-child(6) { transform: rotate(-38deg); height: 175px; }
+.bouquet-stem:nth-child(7) { transform: rotate(38deg); height: 175px; }
+
+.bouquet-leaf {
+    position: absolute;
+    width: 58px;
+    height: 25px;
+    border-radius: 100% 0 100% 0;
+    background: #8eaf76;
+}
+
+.leaf-1 { left: 26px; bottom: 118px; transform: rotate(-28deg); }
+.leaf-2 { left: 84px; bottom: 145px; transform: rotate(18deg) scaleX(-1); }
+.leaf-3 { right: 22px; bottom: 105px; transform: rotate(24deg) scaleX(-1); }
+.leaf-4 { right: 70px; bottom: 145px; transform: rotate(-20deg); }
+
+.flower {
+    position: absolute;
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    filter: drop-shadow(0 8px 10px rgba(150,70,105,0.14));
+}
+
+.flower::before,
+.flower::after {
+    content: "";
+    position: absolute;
+    inset: 13px;
+    border-radius: 50%;
+    background: #f59abc;
+}
+
+.flower::after {
+    transform: rotate(45deg);
+}
+
+.flower-center {
+    position: absolute;
+    z-index: 3;
+    left: 50%;
+    top: 50%;
+    width: 25px;
+    height: 25px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: #ffd66f;
+    box-shadow: 0 0 0 5px rgba(255,255,255,0.25);
+}
+
+.flower-1 { left: 30px; top: 78px; transform: rotate(-10deg); }
+.flower-2 { left: 92px; top: 35px; transform: scale(0.9); }
+.flower-3 { left: 151px; top: 4px; transform: scale(1.05); }
+.flower-4 { left: 214px; top: 38px; transform: scale(0.92); }
+.flower-5 { left: 270px; top: 82px; transform: rotate(10deg); }
+.flower-6 { left: 72px; top: 118px; transform: scale(0.78); }
+.flower-7 { left: 232px; top: 120px; transform: scale(0.78); }
+
+.flower-2::before, .flower-2::after,
+.flower-4::before, .flower-4::after { background: #f7b3cb; }
+.flower-3::before, .flower-3::after { background: #ec78a6; }
+.flower-5::before, .flower-5::after { background: #f28bb0; }
+.flower-6::before, .flower-6::after,
+.flower-7::before, .flower-7::after { background: #ffd0df; }
+
+.bouquet-wrap {
+    position: absolute;
+    left: 50%;
+    bottom: 20px;
+    width: 230px;
+    height: 145px;
+    transform: translateX(-50%);
+    clip-path: polygon(8% 0, 92% 0, 76% 100%, 24% 100%);
+    background: linear-gradient(145deg, #f7b4cb, #df759e);
+    box-shadow: 0 15px 25px rgba(160,70,108,0.18);
+}
+
+.bouquet-ribbon {
+    position: absolute;
+    left: 50%;
+    bottom: 48px;
+    width: 118px;
+    height: 42px;
+    transform: translateX(-50%);
+    z-index: 5;
+}
+
+.bouquet-ribbon::before,
+.bouquet-ribbon::after {
+    content: "";
+    position: absolute;
+    top: 4px;
+    width: 58px;
+    height: 36px;
+    border-radius: 55% 45% 45% 55%;
+    background: #e85e91;
+}
+
+.bouquet-ribbon::before { left: 0; transform: rotate(20deg); }
+.bouquet-ribbon::after { right: 0; transform: rotate(-20deg); }
+
+.bouquet-ribbon-knot {
+    position: absolute;
+    left: 50%;
+    top: 10px;
+    width: 28px;
+    height: 28px;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background: #d94d82;
+    z-index: 6;
+}
+
+.bouquet-caption {
+    margin: 4px 0 0;
+    color: #8f536c;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.18rem;
+    line-height: 1.7;
+}
+
+@media (max-width: 600px) {
+    .bouquet-card { padding: 30px 12px 24px; }
+    .bouquet { transform: scale(0.86); transform-origin: top center; margin-bottom: -50px; }
+}
+
 /* ---------------------------------------------------------
    10. WISH SECTION
    --------------------------------------------------------- */
@@ -2033,6 +2211,58 @@ input:focus-visible {
                     🌬️ Blow the Candles
                 </button>
             </div>
+        </div>
+    </div>
+</section>
+
+<!-- =======================================================
+     BOUQUET
+     ======================================================= -->
+<section class="section" id="bouquet-section">
+    <div class="section-inner">
+        <div class="center">
+            <span class="eyebrow">💐 Just for you</span>
+            <h2 class="section-title">A Bouquet for Mah Girl</h2>
+            <p class="section-subtitle">
+                Because you deserve flowers, too. ❤️
+            </p>
+        </div>
+
+        <div class="bouquet-card">
+            <div class="bouquet" aria-label="A pink bouquet of flowers">
+                <div class="bouquet-stems">
+                    <div class="bouquet-stem"></div>
+                    <div class="bouquet-stem"></div>
+                    <div class="bouquet-stem"></div>
+                    <div class="bouquet-stem"></div>
+                    <div class="bouquet-stem"></div>
+                    <div class="bouquet-stem"></div>
+                    <div class="bouquet-stem"></div>
+
+                    <div class="bouquet-leaf leaf-1"></div>
+                    <div class="bouquet-leaf leaf-2"></div>
+                    <div class="bouquet-leaf leaf-3"></div>
+                    <div class="bouquet-leaf leaf-4"></div>
+                </div>
+
+                <div class="flower flower-1"><span class="flower-center"></span></div>
+                <div class="flower flower-2"><span class="flower-center"></span></div>
+                <div class="flower flower-3"><span class="flower-center"></span></div>
+                <div class="flower flower-4"><span class="flower-center"></span></div>
+                <div class="flower flower-5"><span class="flower-center"></span></div>
+                <div class="flower flower-6"><span class="flower-center"></span></div>
+                <div class="flower flower-7"><span class="flower-center"></span></div>
+
+                <div class="bouquet-wrap"></div>
+                <div class="bouquet-ribbon">
+                    <span class="bouquet-ribbon-knot"></span>
+                </div>
+            </div>
+
+            <p class="bouquet-caption">
+                A little bouquet for my Mah Girl. 🌷<br>
+                Happy birthday, Excy. ❤️
+            </p>
         </div>
     </div>
 </section>
