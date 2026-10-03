@@ -1,0 +1,1605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday, Excy ❤️</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(135deg, #ffd6e7, #f8b6d2, #e8b5ff);
+    color: #5b2945;
+    overflow-x: hidden;
+}
+
+section {
+    min-height: 100vh;
+    padding: 70px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.container {
+    width: 100%;
+    max-width: 900px;
+    text-align: center;
+}
+
+h1 {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    color: #d63384;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    color: #c02c76;
+    margin-bottom: 25px;
+}
+
+h3 {
+    color: #c02c76;
+}
+
+p {
+    line-height: 1.8;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+button {
+    border: none;
+    cursor: pointer;
+    padding: 15px 28px;
+    border-radius: 50px;
+
+    background: linear-gradient(
+        135deg,
+        #ff5c9d,
+        #d63384
+    );
+
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+
+    box-shadow:
+        0 8px 20px rgba(214, 51, 132, 0.3);
+
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: translateY(-3px) scale(1.03);
+}
+
+/* =========================
+   OPENING
+========================= */
+
+#opening {
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            #ffffff80 0 4px,
+            transparent 5px
+        ),
+        radial-gradient(
+            circle at 80% 30%,
+            #ffffff80 0 4px,
+            transparent 5px
+        ),
+        linear-gradient(
+            135deg,
+            #ffd6e7,
+            #e9b5ff
+        );
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 35px;
+}
+
+.heart {
+    font-size: 4rem;
+    animation: heartbeat 1.5s infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes heartbeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+/* =========================
+   CARD
+========================= */
+
+.card {
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(12px);
+
+    border-radius: 30px;
+    padding: 35px;
+
+    box-shadow:
+        0 15px 40px rgba(120, 40, 90, 0.15);
+}
+
+/* =========================
+   ENVELOPE
+========================= */
+
+.envelope {
+    width: 300px;
+    max-width: 90%;
+    height: 190px;
+
+    margin: 30px auto;
+
+    position: relative;
+    cursor: pointer;
+
+    perspective: 1000px;
+}
+
+.envelope-body {
+    width: 100%;
+    height: 100%;
+
+    background: #ff8fba;
+
+    border-radius: 10px;
+
+    position: absolute;
+    bottom: 0;
+
+    box-shadow:
+        0 10px 25px rgba(150, 50, 100, 0.2);
+}
+
+.envelope-flap {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 0;
+    height: 0;
+
+    border-left:
+        150px solid transparent;
+
+    border-right:
+        150px solid transparent;
+
+    border-top:
+        100px solid #ffb2cf;
+
+    transform-origin: top;
+
+    transition: 1s;
+
+    z-index: 3;
+}
+
+.envelope.open .envelope-flap {
+    transform: rotateX(180deg);
+}
+
+/* =========================
+   LETTER
+========================= */
+
+.letter {
+    background: #fffafc;
+
+    border-radius: 15px;
+
+    padding: 30px;
+
+    margin-top: 30px;
+
+    text-align: left;
+
+    line-height: 1.8;
+
+    display: none;
+
+    box-shadow:
+        0 10px 30px rgba(100, 40, 80, 0.15);
+}
+
+.letter.show {
+    display: block;
+
+    animation:
+        letterAppear 1s ease;
+}
+
+@keyframes letterAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+   CAKE
+========================= */
+
+.cake {
+    width: 220px;
+    height: 130px;
+
+    margin: 60px auto 30px;
+
+    position: relative;
+}
+
+.cake-bottom {
+    position: absolute;
+
+    bottom: 0;
+
+    width: 220px;
+    height: 90px;
+
+    background: #ff8fb8;
+
+    border-radius:
+        15px 15px 25px 25px;
+}
+
+.cake-middle {
+    position: absolute;
+
+    bottom: 70px;
+    left: 15px;
+
+    width: 190px;
+    height: 45px;
+
+    background: #ffd1df;
+
+    border-radius: 15px;
+}
+
+.candle {
+    position: absolute;
+
+    bottom: 110px;
+
+    width: 15px;
+    height: 55px;
+
+    background: white;
+
+    border-radius: 5px;
+}
+
+.candle:nth-child(1) {
+    left: 60px;
+}
+
+.candle:nth-child(2) {
+    left: 103px;
+}
+
+.candle:nth-child(3) {
+    left: 146px;
+}
+
+.flame {
+    width: 18px;
+    height: 25px;
+
+    background: #ff9d00;
+
+    border-radius:
+        50% 50% 50% 0;
+
+    transform:
+        rotate(-45deg);
+
+    position: absolute;
+
+    top: -22px;
+    left: -2px;
+
+    animation:
+        flame 0.7s infinite alternate;
+}
+
+.flame.out {
+    display: none;
+}
+
+@keyframes flame {
+
+    from {
+        transform:
+            rotate(-45deg)
+            scale(1);
+    }
+
+    to {
+        transform:
+            rotate(-45deg)
+            scale(1.15);
+    }
+}
+
+/* =========================
+   11:11
+========================= */
+
+.wish-time {
+    font-size:
+        clamp(4rem, 15vw, 8rem);
+
+    font-weight: bold;
+
+    color: #d63384;
+
+    margin: 20px 0;
+
+    text-shadow:
+        0 5px 20px
+        rgba(214, 51, 132, 0.2);
+}
+
+.wish-message {
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+}
+
+/* =========================
+   GIFTS
+========================= */
+
+.gifts {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+
+    margin-top: 40px;
+}
+
+.gift {
+    background:
+        rgba(255, 255, 255, 0.65);
+
+    border-radius: 25px;
+
+    padding: 35px 20px;
+
+    cursor: pointer;
+
+    transition: 0.4s;
+
+    box-shadow:
+        0 10px 25px
+        rgba(120, 40, 90, 0.12);
+}
+
+.gift:hover {
+    transform:
+        translateY(-10px)
+        rotate(2deg);
+}
+
+.gift-icon {
+    font-size: 4rem;
+    margin-bottom: 15px;
+}
+
+.gift-content {
+    display: none;
+
+    margin-top: 20px;
+
+    animation:
+        letterAppear 0.6s ease;
+}
+
+.gift.open .gift-content {
+    display: block;
+}
+
+/* =========================
+   FINAL
+========================= */
+
+#final {
+    background:
+        linear-gradient(
+            135deg,
+            #ffb5d1,
+            #e5b5ff
+        );
+}
+
+.final-heart {
+    font-size: 7rem;
+
+    animation:
+        heartbeat 1.5s infinite;
+}
+
+.final-message {
+    font-size: 1.3rem;
+
+    max-width: 650px;
+
+    margin: 20px auto;
+}
+
+/* =========================
+   MUSIC PLAYER
+========================= */
+
+.music-player {
+    position: fixed;
+
+    bottom: 20px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    width:
+        min(92%, 450px);
+
+    background:
+        rgba(255,255,255,0.95);
+
+    backdrop-filter:
+        blur(15px);
+
+    border-radius: 25px;
+
+    padding: 14px 16px;
+
+    box-shadow:
+        0 10px 30px
+        rgba(100,30,80,0.2);
+
+    z-index: 1000;
+
+    display: none;
+}
+
+.music-player.show {
+    display: block;
+
+    animation:
+        playerIn 0.5s ease;
+}
+
+@keyframes playerIn {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translate(-50%, 30px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translate(-50%, 0);
+    }
+}
+
+.song-title {
+    font-size: 0.85rem;
+
+    color: #b52b6d;
+
+    font-weight: bold;
+
+    margin-bottom: 10px;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+.music-controls {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+}
+
+.music-controls button {
+    padding: 9px 13px;
+
+    font-size: 0.9rem;
+}
+
+.volume {
+    width: 80px;
+
+    accent-color: #d63384;
+}
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+.floating-heart {
+    position: fixed;
+
+    bottom: -30px;
+
+    font-size: 20px;
+
+    pointer-events: none;
+
+    animation:
+        floatUp 5s linear forwards;
+
+    z-index: 5;
+}
+
+@keyframes floatUp {
+
+    from {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            rotate(0deg);
+    }
+
+    to {
+        opacity: 0;
+
+        transform:
+            translateY(-110vh)
+            rotate(360deg);
+    }
+}
+
+/* =========================
+   EXPLOSION
+========================= */
+
+.explosion-heart {
+    position: fixed;
+
+    left: 50%;
+    top: 50%;
+
+    font-size: 25px;
+
+    pointer-events: none;
+
+    z-index: 2000;
+
+    animation:
+        explode 2s ease-out forwards;
+}
+
+@keyframes explode {
+
+    from {
+
+        transform:
+            translate(-50%, -50%)
+            scale(0);
+
+        opacity: 1;
+    }
+
+    to {
+
+        transform:
+            translate(
+                calc(-50% + var(--x)),
+                calc(-50% + var(--y))
+            )
+            scale(1.5);
+
+        opacity: 0;
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    .gifts {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        padding: 25px 18px;
+    }
+
+    .letter {
+        padding: 22px;
+
+        font-size: 0.95rem;
+    }
+
+    .envelope {
+        width: 280px;
+    }
+
+    .envelope-flap {
+        border-left-width: 140px;
+        border-right-width: 140px;
+    }
+
+    .music-player {
+        bottom: 10px;
+    }
+
+    .volume {
+        width: 65px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- ================================= -->
+<!-- OPENING -->
+<!-- ================================= -->
+
+<section id="opening">
+
+<div class="container">
+
+<div class="heart">
+💗
+</div>
+
+<h1>
+Happy Birthday, Excy ❤️
+</h1>
+
+<p class="subtitle">
+I made something special for you...
+</p>
+
+<button onclick="openSurprise()">
+💌 Open Your Surprise
+</button>
+
+</div>
+
+</section>
+
+
+<!-- ================================= -->
+<!-- LETTER -->
+<!-- ================================= -->
+
+<section id="letter-section">
+
+<div class="container">
+
+<h2>
+Something I Want You to Know 💌
+</h2>
+
+
+<div
+class="envelope"
+id="envelope"
+onclick="openLetter()"
+>
+
+<div class="envelope-body"></div>
+
+<div class="envelope-flap"></div>
+
+</div>
+
+
+<p id="envelopeHint">
+Tap the envelope to open it 💗
+</p>
+
+
+<div
+class="letter"
+id="letter"
+>
+
+<p>
+Happy birthday, Excy. I’m really proud of what you have become and how much you’ve changed. I’ve seen all the changes you’ve made, and I really hope you keep it up. Gusto lang nako nga kabalo ka nga I’ll always be here, supporting you, loving you, caring for you, and being proud of you.
+</p>
+
+<br>
+
+<p>
+I hope you enjoy your day and spend it with the people who make you happy. Deserve nimo tanan nga good things nga moabot sa imo life. Sana this new year of your life gives you more happiness, more memories, and more reasons to smile. Enjoy lang sa imong day and ayaw kaayo kabalaka sa mga things nga makapastress nimo.
+</p>
+
+<br>
+
+<p>
+I’m really happy nga nakakita ko sa imong growth and sa person nga nahimo nimo karon. Padayon lang gyud sa imong life, even when things get difficult. Kaya nimo na. I’ll always be proud of you, no matter how big or small your achievements are.
+</p>
+
+<br>
+
+<p>
+And I hope all of your 11:11 wishes come true. Sana matuman tanan nimong gipangandoy, even the wishes you keep to yourself. I hope makuha nimo ang happiness nga deserve nimo and that this year will be good to you.
+</p>
+
+<br>
+
+<p>
+Happy birthday again, Excy. Enjoy kaayo today, ha. Amping always and enjoy every moment of your day.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================================= -->
+<!-- CAKE -->
+<!-- ================================= -->
+
+<section id="cake-section">
+
+<div class="container">
+
+<div class="card">
+
+<h2>
+Make a Wish 🎂
+</h2>
+
+<p>
+Close your eyes, make your wish,
+and blow the candles 💗
+</p>
+
+
+<div class="cake">
+
+<div class="candle">
+<div class="flame"></div>
+</div>
+
+<div class="candle">
+<div class="flame"></div>
+</div>
+
+<div class="candle">
+<div class="flame"></div>
+</div>
+
+<div class="cake-middle"></div>
+
+<div class="cake-bottom"></div>
+
+</div>
+
+
+<button onclick="blowCandles()">
+🕯️ Blow the Candles
+</button>
+
+
+<p
+id="candleMessage"
+style="margin-top:20px;"
+></p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================================= -->
+<!-- 11:11 -->
+<!-- ================================= -->
+
+<section id="wish-section">
+
+<div class="container">
+
+<div class="card">
+
+<h2>
+It's 11:11 ✨
+</h2>
+
+<div class="wish-time">
+11:11
+</div>
+
+<p class="wish-message">
+Make your biggest wish.
+You don't have to tell anyone what it is. ❤️
+</p>
+
+<button onclick="makeWish()">
+✨ Make My Wish
+</button>
+
+<p
+id="wishResult"
+style="margin-top:25px;"
+></p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================================= -->
+<!-- GIFTS -->
+<!-- ================================= -->
+
+<section id="gifts-section">
+
+<div class="container">
+
+<h2>
+Three Little Gifts For You 🎁
+</h2>
+
+<p>
+You have to open them one by one. 😌
+</p>
+
+
+<div class="gifts">
+
+
+<div
+class="gift"
+onclick="openGift(this)"
+>
+
+<div class="gift-icon">
+🎁
+</div>
+
+<h3>
+Gift #1
+</h3>
+
+<div class="gift-content">
+
+<p>
+You deserve to know how proud I am of you. ❤️
+</p>
+
+</div>
+
+</div>
+
+
+<div
+class="gift"
+onclick="openGift(this)"
+>
+
+<div class="gift-icon">
+🎁
+</div>
+
+<h3>
+Gift #2
+</h3>
+
+<div class="gift-content">
+
+<p>
+I hope you continue becoming the person
+you've always wanted to be. ✨
+</p>
+
+</div>
+
+</div>
+
+
+<div
+class="gift"
+onclick="openGift(this)"
+>
+
+<div class="gift-icon">
+🎁
+</div>
+
+<h3>
+Gift #3
+</h3>
+
+<div class="gift-content">
+
+<p>
+And most importantly...
+don't forget that someone will always
+be cheering for you. 💗
+</p>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================================= -->
+<!-- FINAL -->
+<!-- ================================= -->
+
+<section id="final">
+
+<div class="container">
+
+<div class="card">
+
+<div class="final-heart">
+❤️
+</div>
+
+<h2>
+One Last Thing...
+</h2>
+
+<p class="final-message">
+
+I hope this little surprise reminds you
+of how special you are.
+
+<br><br>
+
+Keep growing.
+Keep smiling.
+Keep dreaming.
+
+<br><br>
+
+And always remember...
+
+<br><br>
+
+<strong>
+You deserve to be happy. ❤️
+</strong>
+
+</p>
+
+
+<button onclick="heartExplosion()">
+💗 One More Surprise
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================================= -->
+<!-- MUSIC PLAYER -->
+<!-- ================================= -->
+
+<div
+class="music-player"
+id="musicPlayer"
+>
+
+<div
+class="song-title"
+id="songTitle"
+>
+🎵 12:51 — Krissy & Ericka
+</div>
+
+
+<div class="music-controls">
+
+<button onclick="previousSong()">
+⏮️
+</button>
+
+<button
+onclick="toggleMusic()"
+id="playButton"
+>
+▶️
+</button>
+
+<button onclick="nextSong()">
+⏭️
+</button>
+
+<input
+class="volume"
+type="range"
+min="0"
+max="1"
+step="0.01"
+value="0.7"
+oninput="changeVolume(this.value)"
+>
+
+</div>
+
+</div>
+
+
+<!-- ================================= -->
+<!-- AUDIO -->
+<!-- ================================= -->
+
+<audio
+id="music"
+preload="auto"
+>
+
+<source
+src="song1.mp3"
+type="audio/mpeg"
+>
+
+</audio>
+
+
+<script>
+
+/* ================================= */
+/* MUSIC FILES */
+/* ================================= */
+
+const songs = [
+
+    {
+        title:
+            "🎵 12:51 — Krissy & Ericka",
+
+        file:
+            "song1.mp3"
+    },
+
+    {
+        title:
+            "🎵 Magnolia",
+
+        file:
+            "song2.mp3"
+    }
+
+];
+
+
+let currentSong = 0;
+
+
+/* ================================= */
+/* MUSIC ELEMENTS */
+/* ================================= */
+
+const music =
+    document.getElementById("music");
+
+const musicPlayer =
+    document.getElementById("musicPlayer");
+
+const songTitle =
+    document.getElementById("songTitle");
+
+const playButton =
+    document.getElementById("playButton");
+
+
+music.volume = 0.7;
+
+
+/* ================================= */
+/* LOAD SONG */
+/* ================================= */
+
+function loadSong(index) {
+
+    currentSong = index;
+
+    music.pause();
+
+    music.src =
+        songs[currentSong].file;
+
+    music.load();
+
+    songTitle.textContent =
+        songs[currentSong].title;
+}
+
+
+/* ================================= */
+/* PLAY */
+/* ================================= */
+
+function startMusic() {
+
+    music.play()
+        .then(() => {
+
+            playButton.textContent =
+                "⏸️";
+
+        })
+        .catch((error) => {
+
+            console.error(
+                "Music playback failed:",
+                error
+            );
+
+            playButton.textContent =
+                "▶️";
+
+        });
+}
+
+
+/* ================================= */
+/* OPEN SURPRISE */
+/* ================================= */
+
+function openSurprise() {
+
+    musicPlayer.classList.add("show");
+
+    loadSong(0);
+
+    /*
+       Music starts directly from
+       the button click.
+    */
+
+    startMusic();
+
+
+    document
+        .getElementById("letter-section")
+        .scrollIntoView({
+            behavior: "smooth"
+        });
+
+
+    createHearts();
+}
+
+
+/* ================================= */
+/* PLAY / PAUSE */
+/* ================================= */
+
+function toggleMusic() {
+
+    if (music.paused) {
+
+        startMusic();
+
+    } else {
+
+        music.pause();
+
+        playButton.textContent =
+            "▶️";
+    }
+}
+
+
+/* ================================= */
+/* NEXT SONG */
+/* ================================= */
+
+function nextSong() {
+
+    currentSong++;
+
+    if (
+        currentSong >=
+        songs.length
+    ) {
+
+        currentSong = 0;
+    }
+
+    loadSong(currentSong);
+
+    startMusic();
+}
+
+
+/* ================================= */
+/* PREVIOUS SONG */
+/* ================================= */
+
+function previousSong() {
+
+    currentSong--;
+
+    if (currentSong < 0) {
+
+        currentSong =
+            songs.length - 1;
+    }
+
+    loadSong(currentSong);
+
+    startMusic();
+}
+
+
+/* ================================= */
+/* VOLUME */
+/* ================================= */
+
+function changeVolume(value) {
+
+    music.volume =
+        Number(value);
+}
+
+
+/* ================================= */
+/* AUTO NEXT SONG */
+/* ================================= */
+
+music.addEventListener(
+    "ended",
+    function() {
+
+        nextSong();
+
+    }
+);
+
+
+/* ================================= */
+/* AUDIO ERROR */
+/* ================================= */
+
+music.addEventListener(
+    "error",
+    function() {
+
+        console.error(
+            "Could not load music:",
+            music.src
+        );
+
+    }
+);
+
+
+/* ================================= */
+/* LETTER */
+/* ================================= */
+
+function openLetter() {
+
+    const envelope =
+        document.getElementById("envelope");
+
+    const letter =
+        document.getElementById("letter");
+
+
+    envelope.classList.toggle(
+        "open"
+    );
+
+
+    setTimeout(
+        function() {
+
+            letter.classList.add(
+                "show"
+            );
+
+            document.getElementById(
+                "envelopeHint"
+            ).textContent =
+                "A little message just for you ❤️";
+
+        },
+        600
+    );
+}
+
+
+/* ================================= */
+/* CANDLES */
+/* ================================= */
+
+function blowCandles() {
+
+    const flames =
+        document.querySelectorAll(
+            ".flame"
+        );
+
+
+    flames.forEach(
+        function(flame) {
+
+            flame.classList.add(
+                "out"
+            );
+
+        }
+    );
+
+
+    document.getElementById(
+        "candleMessage"
+    ).textContent =
+        "✨ Wish made! I hope it comes true. ❤️";
+
+
+    createHearts();
+}
+
+
+/* ================================= */
+/* 11:11 WISH */
+/* ================================= */
+
+function makeWish() {
+
+    document.getElementById(
+        "wishResult"
+    ).textContent =
+        "✨ Your wish has been sent to the universe. Keep believing. ❤️";
+
+
+    heartExplosion();
+}
+
+
+/* ================================= */
+/* GIFTS */
+/* ================================= */
+
+function openGift(gift) {
+
+    gift.classList.toggle(
+        "open"
+    );
+
+    createHearts();
+}
+
+
+/* ================================= */
+/* FLOATING HEARTS */
+/* ================================= */
+
+function createHearts() {
+
+    for (
+        let i = 0;
+        i < 12;
+        i++
+    ) {
+
+        const heart =
+            document.createElement(
+                "div"
+            );
+
+
+        heart.className =
+            "floating-heart";
+
+
+        const heartTypes = [
+            "❤️",
+            "💗",
+            "💕",
+            "💖",
+            "💓"
+        ];
+
+
+        heart.textContent =
+            heartTypes[
+                Math.floor(
+                    Math.random() *
+                    heartTypes.length
+                )
+            ];
+
+
+        heart.style.left =
+            Math.random() *
+            100 +
+            "vw";
+
+
+        heart.style.animationDuration =
+            3 +
+            Math.random() * 4 +
+            "s";
+
+
+        heart.style.fontSize =
+            15 +
+            Math.random() * 25 +
+            "px";
+
+
+        document.body.appendChild(
+            heart
+        );
+
+
+        setTimeout(
+            function() {
+
+                heart.remove();
+
+            },
+            7000
+        );
+    }
+}
+
+
+/* ================================= */
+/* HEART EXPLOSION */
+/* ================================= */
+
+function heartExplosion() {
+
+    const hearts = [
+        "❤️",
+        "💗",
+        "💕",
+        "💖",
+        "💓",
+        "💘"
+    ];
+
+
+    for (
+        let i = 0;
+        i < 35;
+        i++
+    ) {
+
+        const heart =
+            document.createElement(
+                "div"
+            );
+
+
+        heart.className =
+            "explosion-heart";
+
+
+        heart.textContent =
+            hearts[
+                Math.floor(
+                    Math.random() *
+                    hearts.length
+                )
+            ];
+
+
+        const angle =
+            Math.random() *
+            Math.PI *
+            2;
+
+
+        const distance =
+            100 +
+            Math.random() *
+            300;
+
+
+        heart.style.setProperty(
+            "--x",
+            Math.cos(angle) *
+            distance +
+            "px"
+        );
+
+
+        heart.style.setProperty(
+            "--y",
+            Math.sin(angle) *
+            distance +
+            "px"
+        );
+
+
+        document.body.appendChild(
+            heart
+        );
+
+
+        setTimeout(
+            function() {
+
+                heart.remove();
+
+            },
+            2000
+        );
+    }
+}
+
+</script>
+
+</body>
+</html>
