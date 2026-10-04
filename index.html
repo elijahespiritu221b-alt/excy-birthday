@@ -244,6 +244,7 @@ setupMovieReference("captainReference");setupMovieReference("hildaReference");
 function setupCredit(id){const card=$(id);if(!card)return;const video=card.querySelector("video");const toggle=()=>{const active=card.classList.toggle("active");card.setAttribute("aria-expanded",String(active));if(active)createHearts(5);else if(video)video.pause()};card.addEventListener("click",e=>{if(e.target.closest("video")||e.target.closest("button"))return;toggle()});card.addEventListener("keydown",e=>{if((e.key==="Enter"||e.key===" ")&&e.target===card){e.preventDefault();toggle()}});if(video)video.addEventListener("play",()=>{card.classList.add("active");card.setAttribute("aria-expanded","true")})}
 setupCredit("laylaCredit");
 setupCredit("kennCredit");
+setupCredit("jellianeCredit");
 setupCredit("drewCredit");
 
 const vaughnCredit=$("vaughnCredit"),runVaughnCode=$("runVaughnCode"),vaughnTerminal=$("vaughnTerminal"),vaughnResult=$("vaughnResult"),vaughnVideoButton=$("vaughnVideoButton"),vaughnVideoArea=$("vaughnVideoArea");
